@@ -1,0 +1,104 @@
+---
+const testimonials = [
+  {
+    quote: 'You bring clarity to areas I am unsure of and awakened ideas in me. I am now more active in my pursuit of purpose and I have more confidence to execute. You bring accountability that allows me to keep going. Your words are enabling and energize me to fulfil my purpose.',
+    name: 'Oba',
+    initial: 'O',
+    role: 'Pursuing purpose with intention',
+    feature: true,
+  },
+  {
+    quote: 'Your enthusiasm, vision and ability to connect the dots are truly amazing. I especially appreciated the visuals you shared; it was exactly what I needed to bring me back to "here and now" and to refocus on the why.',
+    name: 'Kristine',
+    initial: 'K',
+    role: 'Refocused on the why',
+  },
+  {
+    quote: 'You did a fantastic job. Your messaging was very powerful on the importance of each person bringing our diverse perspectives to form one powerful picture. Well done and thank you.',
+    name: 'Renee',
+    initial: 'R',
+    role: 'Diverse perspectives, one picture',
+  },
+  {
+    quote: 'Thank you. I always learn something when I listen to your presentations. I look forward to your future presentations.',
+    name: 'Mostapha',
+    initial: 'M',
+    role: 'Learner',
+  },
+  {
+    quote: 'You are such a confident and genuine speaker. Thank you.',
+    name: 'Anonymous',
+    initial: 'A',
+    role: 'Listener',
+  },
+];
+
+const intimate = {
+  quote: 'The truth is that I was mentally bad, depressed, but talking to you changed that. I started to work on my inside, to be more confident and not be ashamed of my situation knowing fully well that God loves me. Now I look at things differently and I allow God\'s word take the stage.',
+  name: 'E',
+  initial: 'E',
+};
+---
+
+<section class="relative py-24 lg:py-32 bg-marble">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="reveal max-w-3xl mb-16 lg:mb-20">
+      <p class="eyebrow mb-5">What people carry with them</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
+        The work isn't the words.<br />
+        <span class="text-ink-soft/70">It&rsquo;s what stays after.</span>
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-5 lg:gap-6">
+
+      <article class="reveal lg:col-span-6 bg-plaster border border-stone-deep/40 p-8 lg:p-10 rounded-[2px]">
+        <span class="font-display text-5xl text-brand/40 leading-none block mb-3">"</span>
+        <p class="text-base lg:text-[17px] leading-relaxed text-ink-soft italic mb-7">{testimonials[0].quote}</p>
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-jade text-plaster flex items-center justify-center font-display text-sm">{testimonials[0].initial}</span>
+          <div>
+            <p class="text-sm font-medium text-ink">{testimonials[0].name}</p>
+            <p class="text-xs text-ink-soft/60">{testimonials[0].role}</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="lg:col-span-6 grid sm:grid-cols-2 gap-5 lg:gap-6 content-start">
+        {testimonials.slice(1).map((t, i) => (
+          <article class={`reveal reveal-delay-${(i % 2) + 1} bg-plaster border border-stone-deep/40 p-6 lg:p-7 rounded-[2px]`}>
+            <span class="font-display text-3xl text-brand/40 leading-none block mb-2">"</span>
+            <p class="text-[14px] leading-relaxed text-ink-soft italic mb-5">{t.quote}</p>
+            <div class="flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-full bg-jade text-plaster flex items-center justify-center font-display text-xs">{t.initial}</span>
+              <div>
+                <p class="text-xs font-medium text-ink">{t.name}</p>
+                <p class="text-[11px] text-ink-soft/55">{t.role}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+
+    <div class="reveal mt-6 lg:mt-8 relative bg-ink text-plaster p-8 lg:p-12 rounded-[2px] overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent"></div>
+      <div class="absolute -right-12 -top-12 w-48 h-48 arabesque-divider opacity-20"></div>
+      <div class="relative max-w-2xl">
+        <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-soft mb-5">A quieter word</p>
+        <span class="font-display text-5xl text-brand/50 leading-none block mb-4">"</span>
+        <p class="font-display text-xl lg:text-2xl leading-[1.35] text-plaster/95 italic mb-7 text-pretty">{intimate.quote}</p>
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-brand text-ink flex items-center justify-center font-display text-sm">{intimate.initial}</span>
+          <div>
+            <p class="text-sm font-medium text-plaster">{intimate.name}</p>
+            <p class="text-xs text-plaster/55">On what changed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
