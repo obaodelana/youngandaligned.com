@@ -1,0 +1,44 @@
+---
+const objections = [
+  {
+    wait: 'I\'m young. I have time.',
+    reframe: 'Direction compounds. Small clarity now prevents expensive pivots later. The people who move first aren\'t the most talented. They\'re the ones who started asking better questions sooner.',
+  },
+  {
+    wait: 'I need to make money first.',
+    reframe: 'Purpose doesn\'t pay bills. But without it, every paycheck feels smaller than you hoped. Clarity about who you are changes how you show up in the work that pays.',
+  },
+  {
+    wait: 'What if I\'m not consistent enough?',
+    reframe: 'The system was built for real schedules, not perfect people. Awaken is structured into short, focused movements with accountability built in. Inconsistency is exactly what it was designed for.',
+  },
+];
+---
+
+<section class="relative py-24 lg:py-32 bg-plaster">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="reveal max-w-3xl mb-16">
+      <p class="eyebrow mb-5">Common reasons people wait</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
+        Honest objections,<br />
+        <span class="text-ink-soft/70">honest answers.</span>
+      </h2>
+    </div>
+
+    <div class="space-y-px bg-stone-deep/40 border border-stone-deep/40 rounded-[2px] overflow-hidden">
+      {objections.map((o, i) => (
+        <article class="reveal grid md:grid-cols-12 gap-6 lg:gap-10 bg-plaster p-7 lg:p-9 group hover:bg-marble/60 transition-colors duration-500">
+          <div class="md:col-span-5 flex items-start gap-4">
+            <span class="font-mono text-xs text-brand tracking-wide2 pt-1.5">{`0${i + 1}`}</span>
+            <p class="font-display text-xl lg:text-2xl text-ink leading-tight text-balance">"{o.wait}"</p>
+          </div>
+          <div class="md:col-span-7 md:pl-6 md:border-l md:border-stone-deep/40">
+            <p class="text-[15px] text-ink-soft leading-relaxed text-pretty">{o.reframe}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+const year = new Date().getFullYear();
+const path = Astro.url.pathname;
+const isHome = path === '/' || path === '/index' || path === '';
+const explore = [
+  { label: 'Awaken', href: isHome ? '#awaken' : '/#awaken' },
+  { label: 'Framework', href: isHome ? '#framework' : '/#framework' },
+  { label: 'About Bimbo', href: '/bio' },
+];
+const connect = [
+  { label: 'Join Awaken', href: 'https://youngandaligned.fillout.com/awaken-form' },
+  { label: 'Read more', href: '/bio' },
+];
+const homeLogoHref = isHome ? '#top' : '/';
+---
+
+<footer class="relative bg-marble border-t border-stone-deep/40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+
+    <div class="grid md:grid-cols-12 gap-10 lg:gap-14">
+
+      <div class="md:col-span-5 max-w-sm">
+        <a href={homeLogoHref} class="group flex items-center gap-3 mb-5">
+          <img src="/images/logos/ya_small.png" alt="" class="h-8 w-8 object-contain rounded-[3px] opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+          <span class="font-display text-xl tracking-tighter text-ink">Young<span class="text-brand-deep"> & </span>Aligned</span>
+        </a>
+        <p class="text-sm text-ink-soft leading-relaxed mb-6">
+          A faith-based clarity experience helping young adults understand who they are, think more clearly, and live with intention.
+        </p>
+        <p class="font-display text-lg text-ink italic leading-snug">
+          "Hidden within every person is something the world needs. Alignment is what brings it to life."
+        </p>
+      </div>
+
+      <div class="md:col-span-3">
+        <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-5">Explore</p>
+        <ul class="space-y-3">
+          {explore.map((l) => (
+            <li><a href={l.href} class="link-underline text-sm text-ink-soft hover:text-ink">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-5">Take the next step</p>
+        <a href={connect[0].href} class="btn-primary group inline-flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-medium mb-5">
+          <span>Join Awaken</span>
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" class="transition-transform duration-500 group-hover:translate-x-1"><path d="M1 7h12m0 0L7 1m6 6L7 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <ul class="space-y-3">
+          {connect.slice(1).map((l) => (
+            <li><a href={l.href} class="link-underline text-sm text-ink-soft hover:text-ink">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-stone-deep/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-ink-soft/60 font-mono tracking-wide">© {year} Young & Aligned. Built with intention.</p>
+      <p class="text-xs text-ink-soft/60">Bimbo Ogunsola · Workforce Analyst · Human Development Strategist</p>
+    </div>
+
+  </div>
+</footer>
