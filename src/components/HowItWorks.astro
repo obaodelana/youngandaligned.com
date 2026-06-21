@@ -1,0 +1,61 @@
+---
+const steps = [
+  {
+    num: '01',
+    name: 'Reflect',
+    desc: 'Name where you are. An identity audit, not a personality test. You won\'t get a label. You\'ll get a clearer mirror.',
+    detail: 'See the gap between the life you say you want and the decisions you\'re actually making.',
+  },
+  {
+    num: '02',
+    name: 'Align',
+    desc: 'Connect your direction to your faith and your actual life. Alignment is not a feeling. It\'s a decision you keep making.',
+    detail: 'Reframe the patterns running your choices. Move from reaction to intention.',
+  },
+  {
+    num: '03',
+    name: 'Act',
+    desc: 'Leave with a clear next step. Not a to-do list of hopes. One move you can make this week, with accountability to keep going.',
+    detail: 'Build the rhythm that carries clarity into your relationships, work, and direction.',
+  },
+];
+---
+
+<section class="relative py-24 lg:py-32 bg-ink text-plaster overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none opacity-[0.04]" style="background-image: linear-gradient(to right, rgba(245,240,230,1) 1px, transparent 1px); background-size: 14% 100%;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal max-w-3xl mb-20">
+      <p class="eyebrow mb-5" style="color:#D4B894;">How Awaken works</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-plaster leading-tight text-balance">
+        Three movements.<br />
+        <span class="text-brand-soft/70">Not three months.</span>
+      </h2>
+    </div>
+
+    <div class="relative">
+      <div class="absolute left-[42px] lg:left-[60px] top-2 bottom-2 w-px bg-plaster/15 hidden sm:block"></div>
+
+      <ol class="space-y-16 lg:space-y-24">
+        {steps.map((s, i) => (
+          <li class="reveal grid sm:grid-cols-[88px_1fr] lg:grid-cols-[120px_1fr] gap-6 lg:gap-12 items-start">
+            <div class="relative">
+              <div class="w-[84px] h-[84px] lg:w-[116px] lg:h-[116px] rounded-full border border-brand/40 flex items-center justify-center bg-ink relative z-10">
+                <span class="font-mono text-base lg:text-xl text-brand">{s.num}</span>
+              </div>
+              {i < steps.length - 1 && (
+                <div class="absolute left-1/2 top-full w-px h-8 bg-plaster/15 sm:hidden"></div>
+              )}
+            </div>
+
+            <div class="pt-3 lg:pt-7 max-w-2xl">
+              <h3 class="font-display text-3xl lg:text-[40px] text-plaster mb-4 leading-tight">{s.name}</h3>
+              <p class="text-lg lg:text-xl text-plaster/85 leading-relaxed mb-5 text-pretty">{s.desc}</p>
+              <p class="text-sm text-brand-soft/70 font-mono tracking-wide leading-relaxed">{s.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
