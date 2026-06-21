@@ -1,15 +1,66 @@
 ---
 import '../styles/global.css';
+import {
+  SITE_NAME,
+  SITE_URL,
+  DEFAULT_OG_IMAGE,
+  SOCIAL_PROFILES,
+} from '../consts';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  noindex?: boolean;
+  path?: string; // e.g. '/bio' — used for canonical + OG URL
+  jsonLd?: object | object[]; // optional page-specific structured data
 }
 
 const {
   title = 'Young and Aligned — Awaken: clarity for young adults of faith',
-  description = 'A faith-based clarity experience that helps young adults understand who they are, think more clearly, and move with intention.',
+  description =
+    'A faith-based clarity experience that helps young adults understand who they are, think more clearly, and move with intention.',
+  image = DEFAULT_OG_IMAGE,
+  noindex = false,
+  path = Astro.url.pathname,
+  jsonLd,
 } = Astro.props;
+
+// Normalise path to a canonical absolute URL (trailing-slash-consistent).
+const canonicalPath = path.replace(/\/+$/, '') || '/';
+const canonical = new URL(canonicalPath, SITE_URL).href;
+const ogImage = image.startsWith('http') ? image : new URL(image, SITE_URL).href;
+
+// Site-wide structured data -------------------------------------------------
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: new URL('/images/logos/ya_big.png', SITE_URL).href,
+  founder: {
+    '@type': 'Person',
+    name: 'Bimbo Ogunsola',
+    url: new URL('/bio', SITE_URL).href,
+    jobTitle: 'Founder & Human Development Strategist',
+  },
+  sameAs: SOCIAL_PROFILES,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description,
+  publisher: { '@type': 'Organization', name: SITE_NAME },
+};
+
+const schemas: object[] = [organizationSchema, websiteSchema];
+if (jsonLd) {
+  if (Array.isArray(jsonLd)) schemas.push(...jsonLd);
+  else schemas.push(jsonLd);
+}
 ---
 
 <!doctype html>
@@ -18,14 +69,32 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+    />
 
+    <!-- Open Graph (Facebook / LinkedIn) -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/logos/ya_big.png" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" type="image/png" href="/images/logos/ya_small.png" />
     <link rel="apple-touch-icon" href="/images/logos/ya_big.png" />
@@ -34,6 +103,11 @@ const {
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured data (JSON-LD) -->
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
 
     <script is:inline>
       (() => {

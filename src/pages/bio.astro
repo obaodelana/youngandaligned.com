@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { AWAKEN_URL } from '../consts';
+import { AWAKEN_URL, SITE_URL, SITE_NAME } from '../consts';
 
 const ctaHref = AWAKEN_URL;
 
@@ -23,11 +23,54 @@ const roles = [
   'Human Development Strategist',
   'Founder, Young & Aligned',
 ];
+
+const bioUrl = new URL('/bio', SITE_URL).href;
+const heroImageUrl = new URL(heroFull, SITE_URL).href;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Bimbo Ogunsola',
+  url: bioUrl,
+  image: heroImageUrl,
+  jobTitle: 'Founder & Human Development Strategist',
+  worksFor: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+  knowsAbout: [
+    'Human development strategy',
+    'Clarity coaching for young adults',
+    'Faith-based personal growth',
+    'Workforce analytics',
+  ],
+  description:
+    'Workforce Analyst, Speaker, Human Development Strategist, and Founder of Young & Aligned. Creator of the Young & Aligned Framework (Awaken, Transform, Master).',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: SITE_URL,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'About Bimbo',
+      item: bioUrl,
+    },
+  ],
+};
 ---
 
 <Layout
   title="Bimbo Ogunsola — Founder, Young & Aligned"
   description="Workforce Analyst, Speaker, Human Development Strategist, and Founder of Young & Aligned. Creator of the Young & Aligned Framework (Awaken, Transform, Master)."
+  path="/bio"
+  image={heroImageUrl}
+  jsonLd={[personSchema, breadcrumbSchema]}
 >
   <Nav />
 
@@ -68,12 +111,12 @@ const roles = [
           <div class="lg:col-span-6">
             <div class="reveal reveal-delay-2 relative">
               <div class="relative aspect-[4/5] rounded-[3px] overflow-hidden bg-stone vignette">
-                <img src={heroFull} alt="Bimbo Ogunsola" class="w-full h-full object-cover animate-slow-pan" loading="eager" />
+                <img src={heroFull} alt="Bimbo Ogunsola, founder of Young & Aligned — full portrait" class="w-full h-full object-cover animate-slow-pan" loading="eager" width="800" height="1000" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
               </div>
 
               <div class="absolute -left-4 -top-4 w-20 h-20 lg:w-24 lg:h-24 hidden sm:block">
-                <img src={heroHeadshot} alt="" class="w-full h-full object-cover rounded-[3px] border border-stone-deep/50 shadow-sm" />
+                <img src={heroHeadshot} alt="Bimbo Ogunsola headshot" class="w-full h-full object-cover rounded-[3px] border border-stone-deep/50 shadow-sm" width="96" height="96" loading="eager" />
               </div>
 
               <div class="absolute -right-5 -bottom-5 lg:-right-8 lg:-bottom-8 bg-plaster border border-stone-deep/50 px-5 py-4 rounded-[2px] shadow-sm max-w-[220px]">
@@ -127,31 +170,31 @@ const roles = [
         <div class="grid grid-cols-6 gap-4 lg:gap-6">
           <figure class="reveal col-span-6 sm:col-span-4 row-span-2">
             <div class="aspect-[4/5] overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[3]} alt="Bimbo Ogunsola" class="w-full h-full object-cover object-top" loading="lazy" />
+              <img src={gallery[3]} alt="Bimbo Ogunsola full portrait during a speaking session" class="w-full h-full object-cover object-top" loading="lazy" width="800" height="1000" />
             </div>
           </figure>
 
           <figure class="reveal reveal-delay-1 col-span-3 sm:col-span-2">
             <div class="aspect-square overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[0]} alt="Bimbo Ogunsola" class="w-full h-full object-cover object-top" loading="lazy" />
+              <img src={gallery[0]} alt="Bimbo Ogunsola headshot, profile view" class="w-full h-full object-cover object-top" loading="lazy" width="600" height="600" />
             </div>
           </figure>
 
           <figure class="reveal reveal-delay-2 col-span-3 sm:col-span-2">
             <div class="aspect-square overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[1]} alt="Bimbo Ogunsola" class="w-full h-full object-cover object-top" loading="lazy" />
+              <img src={gallery[1]} alt="Bimbo Ogunsola headshot, thoughtful expression" class="w-full h-full object-cover object-top" loading="lazy" width="600" height="600" />
             </div>
           </figure>
 
           <figure class="reveal reveal-delay-3 col-span-3 sm:col-span-2">
             <div class="aspect-[4/5] overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[2]} alt="Bimbo Ogunsola" class="w-full h-full object-cover object-top" loading="lazy" />
+              <img src={gallery[2]} alt="Bimbo Ogunsola headshot, confident portrait" class="w-full h-full object-cover object-top" loading="lazy" width="600" height="750" />
             </div>
           </figure>
 
           <figure class="reveal reveal-delay-4 col-span-3 sm:col-span-4">
             <div class="aspect-[4/3] overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[4]} alt="Bimbo Ogunsola" class="w-full h-full object-cover object-top" loading="lazy" />
+              <img src={gallery[4]} alt="Bimbo Ogunsola full body portrait" class="w-full h-full object-cover object-top" loading="lazy" width="800" height="600" />
             </div>
           </figure>
         </div>

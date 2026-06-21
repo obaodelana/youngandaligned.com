@@ -11,9 +11,21 @@ import Founder from '../components/Founder.astro';
 import Objections from '../components/Objections.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_URL, DEFAULT_OG_IMAGE } from '../consts';
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Young and Aligned — Awaken: clarity for young adults of faith',
+  url: SITE_URL,
+  description:
+    'A faith-based clarity experience that helps young adults understand who they are, think more clearly, and move with intention.',
+  isPartOf: { '@type': 'WebSite', name: 'Young & Aligned', url: SITE_URL },
+  primaryImageOfPage: { '@type': 'ImageObject', url: DEFAULT_OG_IMAGE },
+};
 ---
 
-<Layout>
+<Layout path="/" image={DEFAULT_OG_IMAGE} jsonLd={homeSchema}>
   <Nav />
   <main>
     <Hero />
