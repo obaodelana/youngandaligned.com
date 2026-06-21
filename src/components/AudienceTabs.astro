@@ -1,0 +1,107 @@
+---
+const personas = [
+  {
+    id: 'student',
+    label: 'Student',
+    line: 'You don\'t need to have it all figured out by graduation. But you do need a direction to grow toward.',
+    proof: 'You bring clarity to areas I am unsure of and awakened ideas in me. I am now more active in my pursuit of purpose.',
+    name: 'Oba',
+    initial: 'O',
+  },
+  {
+    id: 'professional',
+    label: 'Early Professional',
+    line: 'The first years out of school shape the next ten. Don\'t let busyness choose your path for you.',
+    proof: 'You bring accountability that allows me to keep going. Your words are enabling and energize me to fulfil my purpose.',
+    name: 'Oba',
+    initial: 'O',
+  },
+  {
+    id: 'transition',
+    label: 'In Transition',
+    line: 'Transition is disorienting. It\'s also the best window to realign who you are with what\'s next.',
+    proof: 'Your messaging was very powerful on the importance of each person bringing our diverse perspectives to form one powerful picture.',
+    name: 'Renee',
+    initial: 'R',
+  },
+  {
+    id: 'stuck',
+    label: 'Feeling Stuck',
+    line: 'Stuck-but-aware is a dangerous place. You already see it. Now do something with it.',
+    proof: 'The truth is that I was mentally bad, depressed, but talking to you changed that. I started to work on my inside. Now I look at things differently.',
+    name: 'E',
+    initial: 'E',
+  },
+];
+---
+
+<section id="awaken" class="relative py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="reveal max-w-3xl mb-14">
+      <p class="eyebrow mb-5">Which sounds like you?</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
+        Clarity meets you<br />where you actually are.
+      </h2>
+    </div>
+
+    <div class="reveal reveal-delay-1 flex flex-wrap gap-2.5 mb-10 border-b border-stone-deep/40 pb-px">
+      {personas.map((p, i) => (
+        <button
+          data-tab={p.id}
+          class={`persona-tab px-5 py-3 text-sm font-medium tracking-wide border-b-2 transition-colors duration-300 -mb-px ${i === 0 ? 'border-ink text-ink' : 'border-transparent text-ink-soft/60 hover:text-ink'}`}
+        >
+          {p.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="lg:col-span-7">
+        {personas.map((p, i) => (
+          <div data-panel={p.id} class={`persona-panel ${i === 0 ? '' : 'hidden'}`}>
+            <p class="font-display text-2xl lg:text-[34px] leading-[1.15] text-ink text-balance mb-8">
+              {p.line}
+            </p>
+            <p class="text-base text-ink-soft leading-relaxed max-w-lg">
+              Awaken is built for the moment you're in. Not a generic life-coaching loop. A structured reflection on what's actually pulling you off course, and a clear next step you can take this week.
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="lg:col-span-5">
+        {personas.map((p, i) => (
+          <div data-quote={p.id} class={`persona-quote ${i === 0 ? '' : 'hidden'} relative bg-marble p-7 lg:p-8 rounded-[2px] border border-stone-deep/40`}>
+            <span class="font-display text-5xl text-brand/40 leading-none block mb-2">"</span>
+            <p class="text-[15px] leading-relaxed text-ink-soft italic mb-6">{p.proof}</p>
+            <div class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-full bg-jade text-plaster flex items-center justify-center font-display text-sm">{p.initial}</span>
+              <span class="text-sm font-medium text-ink">{p.name}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const tabs = document.querySelectorAll('.persona-tab');
+    const panels = document.querySelectorAll('[data-panel]');
+    const quotes = document.querySelectorAll('[data-quote]');
+    tabs.forEach((t) => {
+      t.addEventListener('click', () => {
+        const id = t.dataset.tab;
+        tabs.forEach((x) => x.classList.replace('border-ink', 'border-transparent') || x.classList.replace('text-ink', 'text-ink-soft/60'));
+        tabs.forEach((x) => { x.classList.remove('border-ink','text-ink'); x.classList.add('border-transparent','text-ink-soft/60'); });
+        t.classList.remove('border-transparent','text-ink-soft/60');
+        t.classList.add('border-ink','text-ink');
+        panels.forEach((p) => p.classList.toggle('hidden', p.dataset.panel !== id));
+        quotes.forEach((q) => q.classList.toggle('hidden', q.dataset.quote !== id));
+      });
+    });
+  })();
+</script>
