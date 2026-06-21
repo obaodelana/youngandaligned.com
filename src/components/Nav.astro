@@ -1,4 +1,5 @@
 ---
+import { AWAKEN_URL } from '../consts';
 const path = Astro.url.pathname;
 const isHome = path === '/' || path === '/index' || path === '';
 const sectionLinks = [
@@ -11,7 +12,7 @@ const links = sectionLinks.map((l) => ({
   href: l.path || (isHome ? `#${l.section}` : `/#${l.section}`),
 }));
 const homeLogoHref = isHome ? '#top' : '/';
-const ctaHref = 'https://youngandaligned.fillout.com/awaken';
+const ctaHref = AWAKEN_URL;
 ---
 
 <header class="fixed top-0 inset-x-0 z-50">

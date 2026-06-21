@@ -1,4 +1,5 @@
 ---
+import { AWAKEN_URL } from '../consts';
 const year = new Date().getFullYear();
 const path = Astro.url.pathname;
 const isHome = path === '/' || path === '/index' || path === '';
@@ -8,7 +9,7 @@ const explore = [
   { label: 'About Bimbo', href: '/bio' },
 ];
 const connect = [
-  { label: 'Join Awaken', href: 'https://youngandaligned.fillout.com/awaken' },
+  { label: 'Join Awaken', href: AWAKEN_URL },
   { label: 'Read more', href: '/bio' },
 ];
 const homeLogoHref = isHome ? '#top' : '/';
