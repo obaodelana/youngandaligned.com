@@ -1,59 +1,32 @@
 ---
-const features = [
-  {
-    tag: 'The system',
-    title: 'Structured, not vibes',
-    desc: 'A framework you walk through, not content you scroll past. Every step has an action, a reflection, and a checkpoint. You leave with something, not just a feeling.',
-    icon: 'M3 12h18M3 6h18M3 18h18',
-    span: 'lg:col-span-7',
-  },
-  {
-    tag: 'The commitment',
-    title: 'Fits your real life',
-    desc: 'Not a 3-month marathon. Short, focused experiences designed for students, early professionals, and people in transition.',
-    icon: 'M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z',
-    span: 'lg:col-span-5',
-  },
-  {
-    tag: 'The foundation',
-    title: 'Faith as foundation, not filler',
-    desc: 'Built from faith-based identity work, not motivational fluff. Scripture-shaped reflection meets modern clarity tools. The starting belief: you are God\'s workmanship. Not random. Not ordinary.',
-    icon: 'M12 2L4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z',
-    span: 'lg:col-span-5',
-  },
-  {
-    tag: 'The follow-through',
-    title: 'Accountability that follows you',
-    desc: 'Clear next steps, progress markers, and momentum-checks so inconsistency doesn\'t derail you. The system was built for real schedules, not perfect people.',
-    icon: 'M5 13l4 4L19 7',
-    span: 'lg:col-span-7',
-  },
-];
+import { getCollection } from 'astro:content';
+const features = (await getCollection('features')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const meta = features.find((f) => f.data.eyebrow)?.data;
 ---
 
 <section class="relative py-24 lg:py-32">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
     <div class="reveal max-w-3xl mb-14 lg:mb-20">
-      <p class="eyebrow mb-5">What you actually get</p>
+      <p class="eyebrow mb-5">{meta?.eyebrow}</p>
       <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
-        Not inspiration.<br />
-        <span class="text-ink-soft/70">A system you can repeat.</span>
+        {meta?.heading}<br />
+        <span class="text-ink-soft/70">{meta?.intro}</span>
       </h2>
     </div>
 
     <div class="grid lg:grid-cols-12 gap-5 lg:gap-6">
       {features.map((f, i) => (
-        <article class={`reveal reveal-delay-${(i % 3) + 1} ${f.span} relative p-7 lg:p-9 bg-marble border border-stone-deep/40 rounded-[3px] group transition-all duration-500 hover:border-brand/50 hover:bg-plaster`}>
+        <article class={`reveal reveal-delay-${(i % 3) + 1} ${f.data.span} relative p-7 lg:p-9 bg-marble border border-stone-deep/40 rounded-[3px] group transition-all duration-500 hover:border-brand/50 hover:bg-plaster`}>
           <div class="flex items-center justify-between mb-7">
             <span class="number-tag">{`0${i + 1}`}</span>
             <span class="w-10 h-10 rounded-full border border-stone-deep/60 flex items-center justify-center text-brand-deep group-hover:border-brand group-hover:text-brand transition-colors duration-500">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={f.icon}/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={f.data.icon}/></svg>
             </span>
           </div>
-          <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-3">{f.tag}</p>
-          <h3 class="font-display text-2xl lg:text-[28px] text-ink leading-tight mb-4">{f.title}</h3>
-          <p class="text-[15px] text-ink-soft leading-relaxed max-w-md">{f.desc}</p>
+          <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-3">{f.data.tag}</p>
+          <h3 class="font-display text-2xl lg:text-[28px] text-ink leading-tight mb-4">{f.data.title}</h3>
+          <p class="text-[15px] text-ink-soft leading-relaxed max-w-md">{f.data.desc}</p>
         </article>
       ))}
     </div>
