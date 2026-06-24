@@ -1,0 +1,5 @@
+---
+text: "You're finally ready to start living a purposeful life"
+kind: "for"
+order: 7
+---

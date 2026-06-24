@@ -5,7 +5,9 @@ import Hero from '../components/Hero.astro';
 import Framework from '../components/Framework.astro';
 import AudienceTabs from '../components/AudienceTabs.astro';
 import HowItWorks from '../components/HowItWorks.astro';
+import WeeklyExpectation from '../components/WeeklyExpectation.astro';
 import Features from '../components/Features.astro';
+import GainAndFit from '../components/GainAndFit.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Founder from '../components/Founder.astro';
 import Objections from '../components/Objections.astro';
@@ -19,7 +21,7 @@ const homeSchema = {
   name: 'Young and Aligned — Awaken: clarity for young adults of faith',
   url: SITE_URL,
   description:
-    'A faith-based clarity experience that helps young adults understand who they are, think more clearly, and move with intention.',
+    'A 3-month faith-based clarity experience for young adults aged 18–25 to understand who they are, think more clearly, and move with intention.',
   isPartOf: { '@type': 'WebSite', name: 'Young & Aligned', url: SITE_URL },
   primaryImageOfPage: { '@type': 'ImageObject', url: DEFAULT_OG_IMAGE },
 };
@@ -32,7 +34,9 @@ const homeSchema = {
     <Framework />
     <AudienceTabs />
     <HowItWorks />
+    <WeeklyExpectation />
     <Features />
+    <GainAndFit />
     <Testimonials />
     <Founder />
     <Objections />
