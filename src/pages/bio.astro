@@ -8,7 +8,9 @@ import { AWAKEN_URL, SITE_URL, SITE_NAME } from '../consts';
 const ctaHref = AWAKEN_URL;
 
 const entries = await getCollection('bio');
-const bio = entries[0].data;
+const bioEntry = entries[0];
+const bio = bioEntry.data;
+const { Content } = await bioEntry.render();
 
 const bioUrl = new URL('/bio', SITE_URL).href;
 const heroImageUrl = new URL(bio.image, SITE_URL).href;
@@ -118,10 +120,8 @@ const breadcrumbSchema = {
           {bio.heading}
         </h2>
 
-        <div class="reveal reveal-delay-2 space-y-6 text-[16px] lg:text-[18px] text-ink-soft leading-[1.75]">
-          {bio.paragraphs.map((p) => (
-            <p set:html={p} />
-          ))}
+        <div class="reveal reveal-delay-2 space-y-6 text-[16px] lg:text-[18px] text-ink-soft leading-[1.75] bio-prose">
+          <Content />
         </div>
 
         <div class="reveal reveal-delay-3 my-12 py-10 pl-6 border-l-2 border-brand">

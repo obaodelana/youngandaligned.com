@@ -1,0 +1,5 @@
+---
+text: "Develop a clearer sense of direction"
+kind: "gain"
+order: 5
+---

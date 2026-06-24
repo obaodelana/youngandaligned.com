@@ -1,0 +1,5 @@
+---
+text: "You want inspiration without action"
+kind: "notFor"
+order: 3
+---

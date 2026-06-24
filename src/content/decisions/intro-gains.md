@@ -1,0 +1,6 @@
+---
+eyebrow: "What you'll gain"
+heading: "By the end of the experience, you will:"
+kind: "gain"
+isIntro: true
+---

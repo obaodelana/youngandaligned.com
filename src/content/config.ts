@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 // Collections ----------------------------------------------------------------
 const nav = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     label: z.string(),
     section: z.string(),
@@ -11,7 +11,7 @@ const nav = defineCollection({
 });
 
 const footerExplore = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     label: z.string(),
     href: z.string(),
@@ -19,7 +19,7 @@ const footerExplore = defineCollection({
 });
 
 const footerConnect = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     label: z.string(),
     href: z.string(),
@@ -27,7 +27,7 @@ const footerConnect = defineCollection({
 });
 
 const hero = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     eyebrow: z.string(),
     heading: z.string(),
@@ -38,22 +38,22 @@ const hero = defineCollection({
 });
 
 const framework = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     num: z.string(),
     name: z.string(),
     tag: z.string(),
     desc: z.string(),
     active: z.boolean().default(false),
-  order: z.number().default(0),
-  eyebrow: z.string().optional(),
+    order: z.number().default(0),
+    eyebrow: z.string().optional(),
     title: z.string().optional(),
     intro: z.string().optional(),
   }),
 });
 
 const personas = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     id: z.string(),
     label: z.string(),
@@ -66,7 +66,7 @@ const personas = defineCollection({
 });
 
 const steps = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     num: z.string(),
     name: z.string(),
@@ -77,7 +77,7 @@ const steps = defineCollection({
 });
 
 const weekly = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     title: z.string().optional(),
     desc: z.string().optional(),
@@ -89,7 +89,7 @@ const weekly = defineCollection({
 });
 
 const features = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     tag: z.string(),
     title: z.string(),
@@ -104,7 +104,7 @@ const features = defineCollection({
 });
 
 const decisions = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     text: z.string().default(''),
     kind: z.enum(['gain', 'for', 'notFor']),
@@ -117,7 +117,7 @@ const decisions = defineCollection({
 });
 
 const testimonials = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     quote: z.string(),
     name: z.string(),
@@ -131,7 +131,7 @@ const testimonials = defineCollection({
 });
 
 const intimateTestimonial = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     quote: z.string(),
     name: z.string(),
@@ -141,7 +141,7 @@ const intimateTestimonial = defineCollection({
 });
 
 const objections = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     wait: z.string(),
     reframe: z.string(),
@@ -152,25 +152,23 @@ const objections = defineCollection({
 });
 
 const founder = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     image: z.string(),
     eyebrow: z.string().optional(),
     heading: z.string().optional(),
-    paragraphs: z.array(z.string()),
     pullQuote: z.string().optional(),
     pullSub: z.string().optional(),
   }),
 });
 
 const bio = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     image: z.string(),
     roles: z.array(z.string()),
     eyebrow: z.string().optional(),
     heading: z.string().optional(),
-    paragraphs: z.array(z.string()),
     pullQuote: z.string().optional(),
   }),
 });
