@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+const weeklyEntries = (await getCollection('weekly')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const intro = weeklyEntries.find((e) => e.data.eyebrow);
+const items = weeklyEntries.filter((e) => !e.data.eyebrow);
+---
+
+<section class="relative py-24 lg:py-32 bg-marble">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="reveal max-w-3xl mb-14 lg:mb-20">
+      <p class="eyebrow mb-5">{intro?.data.eyebrow}</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
+        {intro?.data.heading}
+      </h2>
+      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl">
+        {intro?.data.intro}
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      {items.map((w, i) => (
+        <article class={`reveal reveal-delay-${(i % 3) + 1} relative p-7 lg:p-8 bg-plaster border border-stone-deep/40 rounded-[3px]`}>
+          <span class="number-tag mb-4 block">{`0${i + 1}`}</span>
+          <h3 class="font-display text-xl lg:text-2xl text-ink leading-tight mb-3">{w.data.title}</h3>
+          <p class="text-[15px] text-ink-soft leading-relaxed">{w.data.desc}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
