@@ -1,17 +1,18 @@
 ---
-import { AWAKEN_URL } from '../consts';
+import { getCollection } from 'astro:content';
 const year = new Date().getFullYear();
 const path = Astro.url.pathname;
 const isHome = path === '/' || path === '/index' || path === '';
-const explore = [
-  { label: 'Awaken', href: isHome ? '#awaken' : '/#awaken' },
-  { label: 'Framework', href: isHome ? '#framework' : '/#framework' },
-  { label: 'About Bimbo', href: '/bio' },
-];
-const connect = [
-  { label: 'Join Awaken', href: AWAKEN_URL },
-  { label: 'Read more', href: '/bio' },
-];
+
+const exploreEntries = await getCollection('footerExplore');
+const explore = exploreEntries.map((e) => ({
+  label: e.data.label,
+  href: e.data.href.startsWith('#') ? (isHome ? e.data.href : `/${e.data.href}`) : e.data.href,
+}));
+
+const connectEntries = await getCollection('footerConnect');
+const connect = connectEntries.map((e) => ({ label: e.data.label, href: e.data.href }));
+
 const homeLogoHref = isHome ? '#top' : '/';
 ---
 

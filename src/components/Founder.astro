@@ -1,7 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import { AWAKEN_URL } from '../consts';
-const founderImg = '/images/full_body/MEM_2153d.jpg';
 const ctaHref = AWAKEN_URL;
+const entries = await getCollection('founder');
+const f = entries[0].data;
 ---
 
 <section id="founder" class="relative py-24 lg:py-32 overflow-hidden">
@@ -12,7 +14,7 @@ const ctaHref = AWAKEN_URL;
       <div class="lg:col-span-5 lg:sticky lg:top-24">
         <div class="reveal relative">
           <div class="relative aspect-[4/5] rounded-[3px] overflow-hidden bg-stone vignette">
-            <img src={founderImg} alt="Bimbo Ogunsola, founder of Young and Aligned" class="w-full h-full object-cover" loading="lazy" />
+            <img src={f.image} alt="Bimbo Ogunsola, founder of Young and Aligned" class="w-full h-full object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/15 to-transparent"></div>
           </div>
           <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-plaster border border-stone-deep/50 px-5 py-3 rounded-[2px] whitespace-nowrap">
@@ -24,23 +26,23 @@ const ctaHref = AWAKEN_URL;
 
       <div class="lg:col-span-7 max-w-2xl">
         <div class="reveal mb-8">
-          <p class="eyebrow mb-5">Meet the founder</p>
+          <p class="eyebrow mb-5">{f.eyebrow}</p>
           <h2 class="font-display text-4xl lg:text-[44px] text-ink leading-[1.05] text-balance">
-            It started with what I saw<br class="hidden sm:block" /> as a teenager.
+            {f.heading}
           </h2>
         </div>
 
         <div class="reveal reveal-delay-1 space-y-6 text-[16px] lg:text-[17px] text-ink-soft leading-[1.7]">
-          <p>Some of my friends looked like they had life figured out on the outside, but behind the scenes they were dealing with pressure, identity confusion, and decisions that didn&rsquo;t match the life they said they wanted.</p>
-          <p>Over time, I realized something simple. <span class="text-ink font-medium">It wasn&rsquo;t a lack of potential. It was a lack of clarity.</span></p>
-          <p>Young & Aligned started as personal reflection notes and journaling pages while I was trying to make sense of those patterns. As I began working with young people, I kept seeing the same thing: when people understand themselves clearly, they make better decisions. And when they make better decisions, their direction becomes clearer.</p>
+          {f.paragraphs.map((p) => (
+            <p set:html={p} />
+          ))}
         </div>
 
         <div class="reveal reveal-delay-2 my-10 py-8 pl-6 border-l-2 border-brand">
           <p class="font-display text-2xl lg:text-[28px] text-ink leading-[1.25] text-balance mb-2">
-            You are God&rsquo;s workmanship.
+            {f.pullQuote}
           </p>
-          <p class="text-base text-ink-soft italic">Not random. Not ordinary. Created with intention and direction already within you.</p>
+          <p class="text-base text-ink-soft italic">{f.pullSub}</p>
         </div>
 
         <div class="reveal reveal-delay-3 flex flex-wrap items-center gap-4">
