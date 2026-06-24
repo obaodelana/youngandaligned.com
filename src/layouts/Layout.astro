@@ -1,11 +1,11 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 import {
   SITE_NAME,
   SITE_URL,
   DEFAULT_OG_IMAGE,
   SOCIAL_PROFILES,
-} from '../consts';
+} from "../consts";
 
 interface Props {
   title?: string;
@@ -17,9 +17,8 @@ interface Props {
 }
 
 const {
-  title = 'Young and Aligned — Awaken: clarity for young adults of faith',
-  description =
-    'A 3-month faith-based clarity experience for young adults aged 18–25 to understand who they are, think more clearly, and move with intention.',
+  title = "Young and Aligned — Awaken: clarity for young adults of faith",
+  description = "A 3-month faith-based clarity experience for young adults aged 18–25 to understand who they are, think more clearly, and move with intention.",
   image = DEFAULT_OG_IMAGE,
   noindex = false,
   path = Astro.url.pathname,
@@ -27,33 +26,35 @@ const {
 } = Astro.props;
 
 // Normalise path to a canonical absolute URL (trailing-slash-consistent).
-const canonicalPath = path.replace(/\/+$/, '') || '/';
+const canonicalPath = path.replace(/\/+$/, "") || "/";
 const canonical = new URL(canonicalPath, SITE_URL).href;
-const ogImage = image.startsWith('http') ? image : new URL(image, SITE_URL).href;
+const ogImage = image.startsWith("http")
+  ? image
+  : new URL(image, SITE_URL).href;
 
 // Site-wide structured data -------------------------------------------------
 const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
+  "@context": "https://schema.org",
+  "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
-  logo: new URL('/images/logos/ya_big.png', SITE_URL).href,
+  logo: new URL("/images/logos/ya_big.png", SITE_URL).href,
   founder: {
-    '@type': 'Person',
-    name: 'Bimbo Ogunsola',
-    url: new URL('/bio', SITE_URL).href,
-    jobTitle: 'Founder & Human Development Strategist',
+    "@type": "Person",
+    name: "Bimbo Ogunsola",
+    url: new URL("/bio", SITE_URL).href,
+    jobTitle: "Founder & Human Development Strategist",
   },
   sameAs: SOCIAL_PROFILES,
 };
 
 const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
+  "@context": "https://schema.org",
+  "@type": "WebSite",
   name: SITE_NAME,
   url: SITE_URL,
   description,
-  publisher: { '@type': 'Organization', name: SITE_NAME },
+  publisher: { "@type": "Organization", name: SITE_NAME },
 };
 
 const schemas: object[] = [organizationSchema, websiteSchema];
@@ -76,7 +77,9 @@ if (jsonLd) {
     <link rel="canonical" href={canonical} />
     <meta
       name="robots"
-      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+      content={noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
     />
 
     <!-- Open Graph (Facebook / LinkedIn) -->
@@ -105,33 +108,46 @@ if (jsonLd) {
     />
 
     <!-- Structured data (JSON-LD) -->
-    {schemas.map((schema) => (
-      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    ))}
+    {
+      schemas.map((schema) => (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(schema)}
+        />
+      ))
+    }
 
     <script is:inline>
       (() => {
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
         if (reduce) {
-          document.documentElement.classList.add('reduce-motion');
-          const css = document.createElement('style');
+          document.documentElement.classList.add("reduce-motion");
+          const css = document.createElement("style");
           css.textContent = `.reveal{opacity:1!important;transform:none!important}.animate-slow-pan{animation:none!important}`;
           document.head.appendChild(css);
           return;
         }
-        const io = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) {
-              e.target.classList.add('is-visible');
-              io.unobserve(e.target);
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
             }
-          }
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
         const observe = () => {
-          document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => io.observe(el));
+          document
+            .querySelectorAll(".reveal:not(.is-visible)")
+            .forEach((el) => io.observe(el));
         };
-        if (document.readyState !== 'loading') observe();
-        else document.addEventListener('DOMContentLoaded', observe);
+        if (document.readyState !== "loading") observe();
+        else document.addEventListener("DOMContentLoaded", observe);
       })();
     </script>
   </head>
