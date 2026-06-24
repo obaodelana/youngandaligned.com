@@ -2,30 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
 import { AWAKEN_URL, SITE_URL, SITE_NAME } from '../consts';
 
 const ctaHref = AWAKEN_URL;
 
-const heroHeadshot = '/images/headshots/MEM_2245c_profile crop.jpg';
-const heroFull = '/images/full_body/MEM_2153d.jpg';
-
-const gallery = [
-  '/images/headshots/MEM_2214c_profile crop.jpg',
-  '/images/headshots/MEM_2168_profile crop.jpg',
-  '/images/headshots/MEM_2138b_profile crop.jpg',
-  '/images/full_body/MEM_2214c.jpg',
-  '/images/full_body/MEM_2168.jpg',
-];
-
-const roles = [
-  'Workforce Analyst',
-  'Speaker',
-  'Human Development Strategist',
-  'Founder, Young & Aligned',
-];
+const entries = await getCollection('bio');
+const bio = entries[0].data;
 
 const bioUrl = new URL('/bio', SITE_URL).href;
-const heroImageUrl = new URL(heroFull, SITE_URL).href;
+const heroImageUrl = new URL(bio.image, SITE_URL).href;
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -76,9 +62,9 @@ const breadcrumbSchema = {
 
   <main>
     <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden grain">
-      <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute -top-32 -right-40 w-[640px] h-[640px] rounded-full bg-brand-soft/15 blur-3xl"></div>
-        <div class="absolute -bottom-40 -left-32 w-[480px] h-[480px] rounded-full bg-jade/10 blur-3xl"></div>
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="hidden sm:block absolute -top-32 -right-40 w-[640px] h-[640px] rounded-full bg-brand-soft/15 blur-3xl"></div>
+        <div class="hidden sm:block absolute -bottom-40 -left-32 w-[480px] h-[480px] rounded-full bg-jade/10 blur-3xl"></div>
       </div>
 
       <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -89,7 +75,7 @@ const breadcrumbSchema = {
               <span class="eyebrow">About Bimbo</span>
             </div>
 
-            <h1 class="reveal reveal-delay-1 font-display text-[44px] sm:text-6xl lg:text-[78px] leading-[0.98] text-ink text-balance">
+            <h1 class="reveal reveal-delay-1 font-display text-[34px] xs:text-[40px] sm:text-6xl lg:text-[78px] leading-[1.05] xs:leading-[0.98] text-ink text-balance">
               Bimbo<br class="hidden sm:block" /> Ogunsola.
             </h1>
 
@@ -111,15 +97,11 @@ const breadcrumbSchema = {
           <div class="lg:col-span-6">
             <div class="reveal reveal-delay-2 relative">
               <div class="relative aspect-[4/5] rounded-[3px] overflow-hidden bg-stone vignette">
-                <img src={heroFull} alt="Bimbo Ogunsola, founder of Young & Aligned — full portrait" class="w-full h-full object-cover animate-slow-pan" loading="eager" width="800" height="1000" />
+                <img src={bio.image} alt="Bimbo Ogunsola, founder of Young & Aligned — full portrait" class="w-full h-full object-cover animate-slow-pan" loading="eager" width="800" height="1000" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
               </div>
 
-              <div class="absolute -left-4 -top-4 w-20 h-20 lg:w-24 lg:h-24 hidden sm:block">
-                <img src={heroHeadshot} alt="Bimbo Ogunsola headshot" class="w-full h-full object-cover rounded-[3px] border border-stone-deep/50 shadow-sm" width="96" height="96" loading="eager" />
-              </div>
-
-              <div class="absolute -right-5 -bottom-5 lg:-right-8 lg:-bottom-8 bg-plaster border border-stone-deep/50 px-5 py-4 rounded-[2px] shadow-sm max-w-[220px]">
+              <div class="absolute left-2 -bottom-5 sm:-right-5 lg:-right-8 lg:-bottom-8 bg-plaster border border-stone-deep/50 px-5 py-4 rounded-[2px] shadow-sm max-w-[220px]">
                 <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-1.5">Bimbo Ogunsola</p>
                 <p class="font-display text-sm text-ink leading-tight">Founder, Young & Aligned</p>
               </div>
@@ -131,72 +113,27 @@ const breadcrumbSchema = {
 
     <section class="relative py-20 lg:py-28 bg-marble">
       <div class="max-w-3xl mx-auto px-6 lg:px-10">
-        <p class="reveal eyebrow mb-5">The bio</p>
+        <p class="reveal eyebrow mb-5">{bio.eyebrow}</p>
         <h2 class="reveal reveal-delay-1 font-display text-3xl lg:text-4xl text-ink leading-tight text-balance mb-12">
-          Helping young people gain clarity, think clearly, and live with intention.
+          {bio.heading}
         </h2>
 
         <div class="reveal reveal-delay-2 space-y-6 text-[16px] lg:text-[18px] text-ink-soft leading-[1.75]">
-          <p><span class="text-ink font-medium">Bimbo Ogunsola is a Workforce Analyst, Speaker, Human Development Strategist, and Founder of Young & Aligned.</span></p>
-          <p>She helps young people gain clarity about who they are, think more clearly, and make intentional decisions aligned with the life they want to build.</p>
-          <p>She is the creator of the Young & Aligned Framework (Awaken, Transform, Master), a structured system that helps people understand themselves, shift how they think, and take intentional action in their daily lives.</p>
-          <p>Her work is shaped by early experiences of seeing people appear fine on the outside while quietly dealing with pressure, confusion, and uncertainty about their direction. A defining moment was witnessing how quickly life can shift when people lack clarity in their relationships and decisions, which was what deepened her commitment to helping young people slow down and think clearly before making life-shaping choices.</p>
-          <p>Since then, she has supported individuals through speaking and guided sessions that help them gain clarity, reframe how they think, and take ownership of their direction.</p>
+          {bio.paragraphs.map((p) => (
+            <p set:html={p} />
+          ))}
         </div>
 
         <div class="reveal reveal-delay-3 my-12 py-10 pl-6 border-l-2 border-brand">
           <p class="font-display text-2xl lg:text-[32px] text-ink leading-[1.25] text-balance mb-3">
-            She believes that hidden within every person is something the world needs, and alignment is what brings it to life.
+            {bio.pullQuote}
           </p>
         </div>
 
         <div class="reveal reveal-delay-4 flex flex-wrap gap-2">
-          {roles.map((r) => (
+          {bio.roles.map((r) => (
             <span class="font-mono text-[11px] tracking-wide2 uppercase text-brand-deep border border-stone-deep/60 px-3 py-1.5 rounded-full">{r}</span>
           ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="relative py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="reveal max-w-2xl mb-14">
-          <p class="eyebrow mb-5">A few frames</p>
-          <h2 class="font-display text-3xl lg:text-4xl text-ink leading-tight text-balance">
-            Different moments. One direction.
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-6 gap-4 lg:gap-6">
-          <figure class="reveal col-span-6 sm:col-span-4 row-span-2">
-            <div class="aspect-[4/5] overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[3]} alt="Bimbo Ogunsola full portrait during a speaking session" class="w-full h-full object-cover object-top" loading="lazy" width="800" height="1000" />
-            </div>
-          </figure>
-
-          <figure class="reveal reveal-delay-1 col-span-3 sm:col-span-2">
-            <div class="aspect-square overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[0]} alt="Bimbo Ogunsola headshot, profile view" class="w-full h-full object-cover object-top" loading="lazy" width="600" height="600" />
-            </div>
-          </figure>
-
-          <figure class="reveal reveal-delay-2 col-span-3 sm:col-span-2">
-            <div class="aspect-square overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[1]} alt="Bimbo Ogunsola headshot, thoughtful expression" class="w-full h-full object-cover object-top" loading="lazy" width="600" height="600" />
-            </div>
-          </figure>
-
-          <figure class="reveal reveal-delay-3 col-span-3 sm:col-span-2">
-            <div class="aspect-[4/5] overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[2]} alt="Bimbo Ogunsola headshot, confident portrait" class="w-full h-full object-cover object-top" loading="lazy" width="600" height="750" />
-            </div>
-          </figure>
-
-          <figure class="reveal reveal-delay-4 col-span-3 sm:col-span-4">
-            <div class="aspect-[4/3] overflow-hidden rounded-[3px] bg-stone">
-              <img src={gallery[4]} alt="Bimbo Ogunsola full body portrait" class="w-full h-full object-cover object-top" loading="lazy" width="800" height="600" />
-            </div>
-          </figure>
         </div>
       </div>
     </section>
@@ -206,7 +143,7 @@ const breadcrumbSchema = {
 
       <div class="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
         <p class="reveal eyebrow mb-6" style="color:#FF9A5B;">The work begins with a single step</p>
-        <h2 class="reveal reveal-delay-1 font-display text-[40px] sm:text-5xl lg:text-[64px] leading-[1] text-plaster text-balance">
+        <h2 class="reveal reveal-delay-1 font-display text-[34px] xs:text-[40px] sm:text-5xl lg:text-[64px] leading-[1.05] xs:leading-[1] text-plaster text-balance">
           Find your direction<br />
           <span class="text-brand-soft">through Awaken.</span>
         </h2>

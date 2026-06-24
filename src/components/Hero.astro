@@ -1,13 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 import { AWAKEN_URL } from '../consts';
 const ctaHref = AWAKEN_URL;
-const heroImg = '/images/headshots/MEM_2153d_profile crop.jpg';
+
+const heroEntries = await getCollection('hero');
+const hero = heroEntries[0].data;
 ---
 
 <section id="top" class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden grain">
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute -top-32 -right-40 w-[640px] h-[640px] rounded-full bg-brand-soft/20 blur-3xl"></div>
-    <div class="absolute -bottom-40 -left-32 w-[480px] h-[480px] rounded-full bg-jade/10 blur-3xl"></div>
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="hidden sm:block absolute -top-32 -right-40 w-[640px] h-[640px] rounded-full bg-brand-soft/20 blur-3xl"></div>
+    <div class="hidden sm:block absolute -bottom-40 -left-32 w-[480px] h-[480px] rounded-full bg-jade/10 blur-3xl"></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -16,15 +19,15 @@ const heroImg = '/images/headshots/MEM_2153d_profile crop.jpg';
       <div class="lg:col-span-7 max-w-2xl">
         <div class="reveal flex items-center gap-3 mb-7">
           <span class="block w-8 h-px bg-brand"></span>
-          <span class="eyebrow">A faith-based clarity experience</span>
+          <span class="eyebrow">{hero.eyebrow}</span>
         </div>
 
-        <h1 class="reveal reveal-delay-1 font-display text-[44px] sm:text-6xl lg:text-[78px] leading-[0.98] text-ink text-balance">
-          Awaken to who you are<br class="hidden sm:block" /> and where you're going.
+        <h1 class="reveal reveal-delay-1 font-display text-[34px] xs:text-[40px] sm:text-6xl lg:text-[78px] leading-[1.05] xs:leading-[0.98] text-ink text-balance">
+          {hero.heading}
         </h1>
 
         <p class="reveal reveal-delay-2 mt-7 text-lg lg:text-xl text-ink-soft leading-relaxed max-w-xl text-pretty">
-          A structured way for young adults to understand themselves, think more clearly, and move with intention. No 3-month seminar required.
+          {hero.subtitle}
         </p>
 
         <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-4">
@@ -37,26 +40,25 @@ const heroImg = '/images/headshots/MEM_2153d_profile crop.jpg';
           </a>
         </div>
 
-        <div class="reveal reveal-delay-4 mt-12 flex items-center gap-4 text-sm text-ink-soft/70">
+        <div class="reveal reveal-delay-4 mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-soft/70">
           <span class="font-mono text-[11px] tracking-wide2 uppercase">For</span>
-          <span>Students</span>
-          <span class="w-1 h-1 rounded-full bg-stone-deep"></span>
-          <span>Early professionals</span>
-          <span class="w-1 h-1 rounded-full bg-stone-deep"></span>
-          <span>In transition</span>
-          <span class="w-1 h-1 rounded-full bg-stone-deep"></span>
-          <span>Feeling stuck</span>
+          {hero.audience.map((item, i) => (
+            <>
+              {i > 0 && <span class="w-1 h-1 rounded-full bg-stone-deep"></span>}
+              <span>{item}</span>
+            </>
+          ))}
         </div>
       </div>
 
       <div class="lg:col-span-5 relative">
         <div class="reveal reveal-delay-2 relative">
           <div class="relative aspect-[4/5] rounded-[3px] overflow-hidden bg-stone vignette">
-            <img src={heroImg} alt="Bimbo Ogunsola, founder of Young and Aligned, leading a clarity session for young adults" class="w-full h-full object-cover animate-slow-pan" loading="eager" width="800" height="1000" />
+            <img src={hero.image} alt="Bimbo Ogunsola, founder of Young and Aligned, leading a clarity session for young adults" class="w-full h-full object-cover animate-slow-pan" loading="eager" width="800" height="1000" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent"></div>
           </div>
 
-          <div class="absolute -left-5 -bottom-5 lg:-left-8 lg:-bottom-8 bg-plaster border border-stone-deep/50 px-5 py-4 rounded-[2px] shadow-sm max-w-[200px]">
+          <div class="absolute left-2 -bottom-5 sm:-left-5 lg:-left-8 lg:-bottom-8 bg-plaster border border-stone-deep/50 px-5 py-4 rounded-[2px] shadow-sm max-w-[200px]">
             <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-1.5">The founder</p>
             <p class="font-display text-base text-ink leading-tight">Bimbo Ogunsola</p>
             <p class="text-xs text-ink-soft/70 mt-1">Workforce Analyst<br />Human Development Strategist</p>
