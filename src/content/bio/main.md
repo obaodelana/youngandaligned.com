@@ -5,7 +5,7 @@ roles:
   - "Speaker"
   - "Human Development Strategist"
   - "Founder, Young & Aligned"
-eyebrow: "The bio"
+eyebrow: "BIO"
 heading: "Helping young people gain clarity, think clearly, and live with intention."
 pullQuote: "She believes that hidden within every person is something the world needs, and alignment is what brings it to life."
 ---
