@@ -2,7 +2,7 @@
 image: "/images/full_body/MEM_2153d.jpg"
 eyebrow: "Meet the founder"
 heading: "It started with what I saw as a teenager."
-pullQuote: "You are God&rsquo;s workmanship."
+pullQuote: "You are God's workmanship."
 pullSub: "Not random. Not ordinary. Created with intention and direction already within you."
 ---
 

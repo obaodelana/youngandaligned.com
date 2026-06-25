@@ -3,6 +3,6 @@ eyebrow: "How Awaken works"
 heading: "Three movements."
 intro: "Across three months."
 title: "Weekly 2-hour group sessions"
-desc: "Structured teaching, reflection, and guided discussion — live, with the cohort."
+desc: "Structured teaching, reflection, and guided discussion - live, with the cohort."
 order: 1
 ---

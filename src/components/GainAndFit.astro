@@ -23,10 +23,10 @@ const notForIntro = all.find((e) => e.data.kind === 'notFor' && e.data.isIntro)?
     <div class="reveal reveal-delay-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 mb-24 lg:mb-32">
       {gains.map((g) => (
         <div class="flex items-start gap-3">
-          <span class="mt-1.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand/10 flex items-center justify-center">
-            <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="text-brand-deep"/></svg>
+          <span class="mt-1.5 flex-shrink-0 w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-deep"/></svg>
           </span>
-          <p class="text-[15px] lg:text-base text-ink-soft leading-relaxed">{g.data.text}</p>
+          <p class="text-base lg:text-lg text-ink-soft font-semibold leading-relaxed">{g.data.text}</p>
         </div>
       ))}
     </div>
@@ -43,10 +43,10 @@ const notForIntro = all.find((e) => e.data.kind === 'notFor' && e.data.isIntro)?
           <ul class="space-y-4">
             {forYou.map((f) => (
               <li class="flex items-start gap-3">
-                <span class="mt-1.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand/10 flex items-center justify-center">
-                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="text-brand-deep"/></svg>
+                <span class="mt-1.5 flex-shrink-0 w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center">
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-deep"/></svg>
                 </span>
-                <p class="text-[15px] lg:text-base text-ink-soft leading-relaxed">{f.data.text}</p>
+                <p class="text-base lg:text-lg text-ink-soft font-semibold leading-relaxed">{f.data.text}</p>
               </li>
             ))}
           </ul>
@@ -62,10 +62,10 @@ const notForIntro = all.find((e) => e.data.kind === 'notFor' && e.data.isIntro)?
           <ul class="space-y-4">
             {notForYou.map((n) => (
               <li class="flex items-start gap-3">
-                <span class="mt-1.5 flex-shrink-0 w-5 h-5 rounded-full bg-ink/5 flex items-center justify-center">
-                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-ink-soft"/></svg>
+                <span class="mt-1.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink/5 flex items-center justify-center">
+                  <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="text-ink-soft"/></svg>
                 </span>
-                <p class="text-[15px] lg:text-base text-ink-soft/80 leading-relaxed">{n.data.text}</p>
+                <p class="text-base lg:text-lg text-ink-soft/80 font-semibold leading-relaxed">{n.data.text}</p>
               </li>
             ))}
           </ul>

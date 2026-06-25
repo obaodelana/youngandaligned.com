@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "workspace": {
+    "name": "workflows",
+    "createdAt": 1782414742113,
+    "preset": "starter"
+  },
+  "authorizedRoots": [
+    "C:\\Users\\bimbo\\OneDrive\\Documents\\GitHub\\youngandaligned.com\\.github\\workflows"
+  ],
+  "reload": null
+}

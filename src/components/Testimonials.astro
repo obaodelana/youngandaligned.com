@@ -23,12 +23,12 @@ const intimate = intimateEntries[0].data;
 
       <article class="reveal lg:col-span-6 bg-plaster border border-stone-deep/40 p-8 lg:p-10 rounded-[2px]">
         <span class="font-display text-5xl text-brand/40 leading-none block mb-3">"</span>
-        <p class="text-base lg:text-[17px] leading-relaxed text-ink-soft italic mb-7">{feature?.data.quote}</p>
+        <p class="text-[17px] lg:text-lg leading-relaxed text-ink-soft font-medium mb-7">{feature?.data.quote}</p>
         <div class="flex items-center gap-3">
           <span class="w-10 h-10 rounded-full bg-jade text-plaster flex items-center justify-center font-display text-sm">{feature?.data.initial}</span>
           <div>
-            <p class="text-sm font-medium text-ink">{feature?.data.name}</p>
-            <p class="text-xs text-ink-soft/60">{feature?.data.role}</p>
+            <p class="text-sm font-semibold text-ink">{feature?.data.name}</p>
+            <p class="text-xs text-ink-soft/80">{feature?.data.role}</p>
           </div>
         </div>
       </article>
@@ -37,12 +37,12 @@ const intimate = intimateEntries[0].data;
         {rest.map((t, i) => (
           <article class={`reveal reveal-delay-${(i % 2) + 1} bg-plaster border border-stone-deep/40 p-6 lg:p-7 rounded-[2px]`}>
             <span class="font-display text-3xl text-brand/40 leading-none block mb-2">"</span>
-            <p class="text-[14px] leading-relaxed text-ink-soft italic mb-5">{t.data.quote}</p>
+            <p class="text-[15px] lg:text-base leading-relaxed text-ink-soft font-medium mb-5">{t.data.quote}</p>
             <div class="flex items-center gap-2.5">
               <span class="w-8 h-8 rounded-full bg-jade text-plaster flex items-center justify-center font-display text-xs">{t.data.initial}</span>
               <div>
-                <p class="text-xs font-medium text-ink">{t.data.name}</p>
-                <p class="text-[11px] text-ink-soft/55">{t.data.role}</p>
+                <p class="text-xs font-semibold text-ink">{t.data.name}</p>
+                <p class="text-xs text-ink-soft/80">{t.data.role}</p>
               </div>
             </div>
           </article>
@@ -55,7 +55,7 @@ const intimate = intimateEntries[0].data;
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent"></div>
       <div class="absolute -right-12 -top-12 w-48 h-48 arabesque-divider opacity-20"></div>
       <div class="relative max-w-2xl">
-        <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-soft mb-5">{intimate.eyebrow}</p>
+        <p class="font-mono text-sm tracking-wide2 uppercase text-brand-soft mb-5">{intimate.eyebrow}</p>
         <span class="font-display text-5xl text-brand/50 leading-none block mb-4">"</span>
         <p class="font-display text-xl lg:text-2xl leading-[1.35] text-plaster/95 italic mb-7 text-pretty">{intimate.quote}</p>
         <div class="flex items-center gap-3">

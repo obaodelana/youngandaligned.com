@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "workspace": {
+    "name": "youngandaligned.com",
+    "createdAt": 1782414593981,
+    "preset": "starter"
+  },
+  "authorizedRoots": [
+    "C:\\Users\\bimbo\\OneDrive\\Documents\\GitHub\\youngandaligned.com"
+  ],
+  "reload": null
+}

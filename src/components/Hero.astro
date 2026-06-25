@@ -26,9 +26,7 @@ const hero = heroEntries[0].data;
           {hero.heading}
         </h1>
 
-        <p class="reveal reveal-delay-2 mt-7 text-lg lg:text-xl text-ink-soft leading-relaxed max-w-xl text-pretty">
-          {hero.subtitle}
-        </p>
+        <p class="reveal reveal-delay-2 mt-7 text-lg lg:text-xl text-ink-soft leading-relaxed max-w-xl text-pretty" set:html={hero.subtitle.replace('3-month', '<span class="text-brand font-semibold">3-month</span>').replace('18–25', '<span class="text-brand font-semibold">18–25</span>')}></p>
 
         <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-4">
           <a href={ctaHref} class="btn-primary group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide">
@@ -62,10 +60,6 @@ const hero = heroEntries[0].data;
             <p class="font-mono text-[10px] tracking-wide2 uppercase text-brand-deep mb-1.5">The founder</p>
             <p class="font-display text-base text-ink leading-tight">Bimbo Ogunsola</p>
             <p class="text-xs text-ink-soft/70 mt-1">Workforce Analyst<br />Human Development Strategist</p>
-          </div>
-
-          <div class="absolute -top-4 -right-4 lg:-top-6 lg:-right-6 hidden sm:block">
-            <img src="/images/logos/ya_small.png" alt="" class="w-14 h-14 lg:w-16 lg:h-16 object-contain opacity-60 rounded-[3px]" />
           </div>
         </div>
       </div>

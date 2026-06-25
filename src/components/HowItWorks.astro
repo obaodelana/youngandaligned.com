@@ -8,7 +8,7 @@ const steps = (await getCollection('steps')).sort((a, b) => a.data.order - b.dat
 
   <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
     <div class="reveal max-w-3xl mb-20">
-      <p class="eyebrow mb-5" style="color:#D4B894;">How Awaken works</p>
+      <p class="eyebrow mb-5" style="color:white;">How Awaken works</p>
       <h2 class="font-display text-[34px] xs:text-[40px] sm:text-5xl lg:text-5xl text-plaster leading-[1.05] xs:leading-tight text-balance">
         Three movements.<br />
         <span class="text-brand-soft/70">Across three months.</span>
@@ -22,8 +22,8 @@ const steps = (await getCollection('steps')).sort((a, b) => a.data.order - b.dat
         {steps.map((s, i) => (
           <li class="reveal grid sm:grid-cols-[88px_1fr] lg:grid-cols-[120px_1fr] gap-6 lg:gap-12 items-start">
             <div class="relative">
-              <div class="w-[84px] h-[84px] lg:w-[116px] lg:h-[116px] rounded-full border border-brand/40 flex items-center justify-center bg-ink relative z-10">
-                <span class="font-mono text-base lg:text-xl text-brand">{s.data.num}</span>
+              <div class="w-[84px] h-[84px] lg:w-[116px] lg:h-[116px] rounded-full border-2 border-brand/80 flex items-center justify-center bg-brand/10 relative z-10">
+                <span class="font-mono text-lg lg:text-2xl text-brand font-semibold">{s.data.num}</span>
               </div>
               {i < steps.length - 1 && (
                 <div class="absolute left-1/2 top-full w-px h-8 bg-plaster/15 sm:hidden"></div>
@@ -33,7 +33,7 @@ const steps = (await getCollection('steps')).sort((a, b) => a.data.order - b.dat
             <div class="pt-3 lg:pt-7 max-w-2xl">
               <h3 class="font-display text-3xl lg:text-[40px] text-plaster mb-4 leading-tight">{s.data.name}</h3>
               <p class="text-lg lg:text-xl text-plaster/85 leading-relaxed mb-5 text-pretty">{s.data.desc}</p>
-              <p class="text-sm text-brand-soft/70 font-mono tracking-wide leading-relaxed">{s.data.detail}</p>
+              <p class="text-base text-plaster/85 font-mono tracking-wide leading-relaxed italic">{s.data.detail}</p>
             </div>
           </li>
         ))}

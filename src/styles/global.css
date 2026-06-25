@@ -62,11 +62,10 @@
 
   .eyebrow {
     font-family: theme('fontFamily.mono');
-    font-size: 11px;
+    font-size: 15px;
     letter-spacing: theme('letterSpacing.wide3');
     text-transform: uppercase;
     color: theme('colors.brand-deep');
-    font-weight: 500;
   }
 
   .number-tag {

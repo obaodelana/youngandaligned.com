@@ -11,6 +11,7 @@ import GainAndFit from '../components/GainAndFit.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Founder from '../components/Founder.astro';
 import Objections from '../components/Objections.astro';
+import InvestmentNotice from '../components/InvestmentNotice.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_URL, DEFAULT_OG_IMAGE } from '../consts';
@@ -18,7 +19,7 @@ import { SITE_URL, DEFAULT_OG_IMAGE } from '../consts';
 const homeSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Young and Aligned — Awaken: clarity for young adults of faith',
+  name: 'Young and Aligned - Awaken: clarity for young adults of faith',
   url: SITE_URL,
   description:
     'A 3-month faith-based clarity experience for young adults aged 18–25 to understand who they are, think more clearly, and move with intention.',
@@ -40,6 +41,7 @@ const homeSchema = {
     <Testimonials />
     <Founder />
     <Objections />
+    <InvestmentNotice />
     <FinalCTA />
   </main>
   <Footer />

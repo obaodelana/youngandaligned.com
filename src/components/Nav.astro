@@ -23,13 +23,13 @@ const homeLogoHref = isHome ? '#top' : '/';
   <div class="backdrop-blur-md bg-plaster/80 border-b border-stone-deep/40">
     <nav class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
       <a href={homeLogoHref} class="group flex items-center gap-3">
-        <img src="/images/logos/ya_small.png" alt="" class="h-8 w-8 object-contain rounded-[3px] opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
-        <span class="font-display text-lg tracking-tighter text-ink">Young<span class="text-brand-deep"> & </span>Aligned</span>
+        <img src="/images/logos/ya_small.png" alt="" class="h-10 w-10 lg:h-11 lg:w-11 object-contain rounded-[3px] opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+        <span class="font-display text-xl lg:text-2xl tracking-tighter text-ink">Young<span class="text-brand-deep"> & </span>Aligned</span>
       </a>
 
       <div class="hidden md:flex items-center gap-9">
         {linksResolved.map((l) => (
-          <a href={l.href} class="link-underline font-body text-sm text-ink-soft hover:text-ink transition-colors">{l.label}</a>
+          <a href={l.href} class="link-underline font-body text-base text-ink-soft hover:text-ink transition-colors">{l.label}</a>
         ))}
       </div>
 
