@@ -16,19 +16,19 @@ const hero = heroEntries[0].data;
   <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-      <div class="lg:col-span-7 max-w-2xl">
-        <div class="reveal flex items-center gap-3 mb-7">
+      <div class="lg:col-span-7 max-w-2xl mx-auto">
+        <div class="reveal flex items-center justify-center gap-3 mb-7">
           <span class="block w-8 h-px bg-brand"></span>
           <span class="eyebrow">{hero.eyebrow}</span>
         </div>
 
-        <h1 class="reveal reveal-delay-1 font-display text-[34px] xs:text-[40px] sm:text-6xl lg:text-[78px] leading-[1.05] xs:leading-[0.98] text-ink text-balance">
+        <h1 class="reveal reveal-delay-1 font-display text-[34px] xs:text-[40px] sm:text-6xl lg:text-[78px] leading-[1.05] xs:leading-[0.98] text-ink text-balance text-center">
           {hero.heading}
         </h1>
 
-        <p class="reveal reveal-delay-2 mt-7 text-lg lg:text-xl text-ink-soft leading-relaxed max-w-xl text-pretty" set:html={hero.subtitle.replace('3-month', '<span class="text-brand font-semibold">3-month</span>').replace('18–25', '<span class="text-brand font-semibold">18–25</span>')}></p>
+        <p class="reveal reveal-delay-2 mt-7 text-lg lg:text-xl text-ink-soft leading-relaxed max-w-xl text-pretty text-center" set:html={hero.subtitle.replace('3-month', '<span class="text-brand font-semibold">3-month</span>').replace('18–25', '<span class="text-brand font-semibold">18–25</span>')}></p>
 
-        <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-4">
+        <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center justify-center gap-4">
           <a href={ctaHref} class="btn-primary group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide">
             <span>Join Awaken</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="transition-transform duration-500 group-hover:translate-x-1"><path d="M1 7h12m0 0L7 1m6 6L7 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -38,7 +38,7 @@ const hero = heroEntries[0].data;
           </a>
         </div>
 
-        <div class="reveal reveal-delay-4 mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-soft/70">
+        <div class="reveal reveal-delay-4 mt-12 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-ink-soft/70">
           <span class="font-mono text-[11px] tracking-wide2 uppercase">For</span>
           {hero.audience.map((item, i) => (
             <>

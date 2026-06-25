@@ -7,7 +7,7 @@ const meta = entries.find((e) => e.data.eyebrow)?.data;
 <section class="relative py-24 lg:py-32 bg-plaster">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-    <div class="reveal max-w-3xl mb-16">
+    <div class="reveal max-w-3xl mx-auto mb-16 text-center">
       <p class="eyebrow mb-5">{meta?.eyebrow}</p>
       <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
         {meta?.heading?.split(',')[0]},<br />
@@ -18,11 +18,11 @@ const meta = entries.find((e) => e.data.eyebrow)?.data;
     <div class="space-y-px bg-stone-deep/40 border border-stone-deep/40 rounded-[2px] overflow-hidden">
       {entries.map((o, i) => (
         <article class="reveal grid md:grid-cols-12 gap-6 lg:gap-10 bg-plaster p-7 lg:p-9 group hover:bg-marble/60 transition-colors duration-500">
-          <div class="md:col-span-5 flex items-start gap-4">
+          <div class="md:col-span-5 flex items-center justify-center gap-4">
             <span class="font-mono text-xs text-brand tracking-wide2 pt-1.5">{`0${i + 1}`}</span>
             <p class="font-display text-xl lg:text-2xl text-ink leading-tight text-balance">"{o.data.wait}"</p>
           </div>
-          <div class="md:col-span-7 md:pl-6 md:border-l md:border-stone-deep/40">
+          <div class="md:col-span-7 md:pl-6 md:border-l md:border-stone-deep/40 text-center">
             <p class="text-[16px] lg:text-[17px] text-ink-soft leading-[1.7] text-pretty">{o.data.reframe}</p>
           </div>
         </article>

@@ -6,14 +6,14 @@ const personas = (await getCollection('personas')).sort((a, b) => a.data.order -
 <section id="awaken" class="relative py-24 lg:py-32">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-    <div class="reveal max-w-3xl mb-14">
+    <div class="reveal max-w-3xl mx-auto mb-14 text-center">
       <p class="eyebrow mb-5">Which sounds like you?</p>
       <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
         Clarity meets you<br />where you actually are.
       </h2>
     </div>
 
-    <div class="reveal reveal-delay-1 flex flex-nowrap gap-2.5 mb-10 border-b border-stone-deep/40 pb-px overflow-x-auto sm:flex-wrap sm:overflow-visible -mx-6 px-6 sm:mx-0 sm:px-0">
+    <div class="reveal reveal-delay-1 flex flex-nowrap justify-center gap-2.5 mb-10 border-b border-stone-deep/40 pb-px overflow-x-auto sm:flex-wrap sm:overflow-visible -mx-6 px-6 sm:mx-0 sm:px-0">
       {personas.map((p, i) => (
         <button
           data-tab={p.data.id}
@@ -25,13 +25,13 @@ const personas = (await getCollection('personas')).sort((a, b) => a.data.order -
     </div>
 
     <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-7 text-center">
         {personas.map((p, i) => (
           <div data-panel={p.data.id} class={`persona-panel ${i === 0 ? '' : 'hidden'}`}>
             <p class="font-display text-2xl lg:text-[34px] leading-[1.15] text-ink text-balance mb-8">
               {p.data.line}
             </p>
-            <p class="text-base text-ink-soft leading-relaxed max-w-lg">
+            <p class="text-base text-ink-soft leading-relaxed max-w-lg mx-auto">
               Awaken is built for the moment you're in. Not a generic life-coaching loop. A structured reflection on what's actually pulling you off course, and a clear next step you can take this week.
             </p>
           </div>
@@ -40,10 +40,10 @@ const personas = (await getCollection('personas')).sort((a, b) => a.data.order -
 
       <div class="lg:col-span-5">
         {personas.map((p, i) => (
-          <div data-quote={p.data.id} class={`persona-quote ${i === 0 ? '' : 'hidden'} relative bg-marble p-7 lg:p-8 rounded-[2px] border border-stone-deep/40`}>
+          <div data-quote={p.data.id} class={`persona-quote ${i === 0 ? '' : 'hidden'} relative bg-marble p-7 lg:p-8 rounded-[2px] border border-stone-deep/40 text-center`}>
             <span class="font-display text-5xl text-brand/40 leading-none block mb-2">"</span>
             <p class="text-[15px] leading-relaxed text-ink-soft italic mb-6">{p.data.proof}</p>
-            <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center gap-3">
               <span class="w-9 h-9 rounded-full bg-jade text-plaster flex items-center justify-center font-display text-sm">{p.data.initial}</span>
               <span class="text-sm font-medium text-ink">{p.data.name}</span>
             </div>

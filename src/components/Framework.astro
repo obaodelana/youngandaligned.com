@@ -7,21 +7,21 @@ const meta = stages.find((s) => s.data.eyebrow)?.data;
 <section id="framework" class="relative py-24 lg:py-32 bg-marble">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-    <div class="reveal max-w-3xl mb-16 lg:mb-20">
+    <div class="reveal max-w-3xl mx-auto mb-16 lg:mb-20 text-center">
       <p class="eyebrow mb-5">{meta?.eyebrow}</p>
       <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
         {meta?.title}<br />
         <span class="text-ink-soft/70">You start with Awaken.</span>
       </h2>
-      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl">
+      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl mx-auto">
         {meta?.intro}
       </p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-px bg-stone-deep/40 border border-stone-deep/40 rounded-[2px] overflow-hidden">
       {stages.map((s) => (
-        <article class={`reveal relative p-8 lg:p-10 ${s.data.active ? 'bg-plaster' : 'bg-marble/60'}`}>
-          <div class="flex items-center justify-between mb-8">
+        <article class={`reveal relative p-8 lg:p-10 text-center ${s.data.active ? 'bg-plaster' : 'bg-marble/60'}`}>
+          <div class="flex items-center justify-center gap-4 mb-8">
             <span class="number-tag">{s.data.num}</span>
             {s.data.active && (
               <span class="font-mono text-[10px] tracking-wide2 uppercase text-brand border border-brand/40 px-2 py-1 rounded-full">Start here</span>
