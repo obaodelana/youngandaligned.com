@@ -15,25 +15,28 @@ const steps = (await getCollection('steps')).sort((a, b) => a.data.order - b.dat
       </h2>
     </div>
 
-    <div class="relative">
-      <div class="absolute left-[42px] lg:left-[60px] top-2 bottom-2 w-px bg-plaster/15 hidden sm:block"></div>
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Timeline line -->
+      <div class="absolute left-[28px] lg:left-[36px] top-[60px] bottom-[60px] w-[2px] bg-gradient-to-b from-brand/50 via-brand/30 to-brand/10 hidden sm:block"></div>
 
-      <ol class="space-y-16 lg:space-y-24">
+      <ol class="space-y-20 lg:space-y-28">
         {steps.map((s, i) => (
-          <li class="reveal grid sm:grid-cols-[88px_1fr] lg:grid-cols-[120px_1fr] gap-6 lg:gap-12 items-start">
-            <div class="relative">
-              <div class="w-[84px] h-[84px] lg:w-[116px] lg:h-[116px] rounded-full border-2 border-brand/80 flex items-center justify-center bg-brand/10 relative z-10">
-                <span class="font-mono text-lg lg:text-2xl text-brand font-semibold">{s.data.num}</span>
+          <li class="reveal relative grid sm:grid-cols-[72px_1fr] lg:grid-cols-[88px_1fr] gap-8 lg:gap-10 items-start">
+            <!-- Numbered badge -->
+            <div class="relative flex justify-center sm:block">
+              <div class="relative z-10 w-14 h-14 lg:w-[72px] lg:h-[72px] rounded-full border-2 border-brand/60 bg-brand/10 flex items-center justify-center shadow-lg shadow-brand/5">
+                <span class="font-mono text-base lg:text-xl text-brand font-semibold tracking-wide">{s.data.num}</span>
               </div>
-              {i < steps.length - 1 && (
-                <div class="absolute left-1/2 top-full w-px h-8 bg-plaster/15 sm:hidden"></div>
-              )}
             </div>
 
-            <div class="pt-3 lg:pt-7 max-w-2xl">
-              <h3 class="font-display text-3xl lg:text-[40px] text-plaster mb-4 leading-tight">{s.data.name}</h3>
-              <p class="text-lg lg:text-xl text-plaster/85 leading-relaxed mb-5 text-pretty">{s.data.desc}</p>
-              <p class="text-base text-plaster/85 font-mono tracking-wide leading-relaxed italic">{s.data.detail}</p>
+            <!-- Content -->
+            <div class="pt-1 lg:pt-2">
+              <h3 class="font-display text-[28px] sm:text-[32px] lg:text-[42px] text-plaster mb-5 leading-[1.08] tracking-tight">{s.data.name}</h3>
+              <p class="text-base sm:text-lg lg:text-xl text-plaster/80 leading-relaxed mb-3 max-w-2xl">{s.data.desc}</p>
+              <div class="flex items-start gap-3">
+                <span class="block w-5 h-px bg-brand/40 mt-3 shrink-0"></span>
+                <p class="text-sm sm:text-base text-plaster/80 leading-relaxed max-w-lg">{s.data.detail}</p>
+              </div>
             </div>
           </li>
         ))}

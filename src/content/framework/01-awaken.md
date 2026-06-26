@@ -5,7 +5,7 @@ intro: "A structured system that helps you understand yourself, shift how you th
 num: "01"
 name: "Awaken"
 tag: "Understand yourself"
-desc: "The entry point. Name where you actually are. An identity audit, not a personality test."
+desc: "The entry point. Name where you actually are."
 active: true
 order: 1
 ---

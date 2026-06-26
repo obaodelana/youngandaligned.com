@@ -1,7 +1,7 @@
 ---
 num: "02"
 name: "Align"
-desc: "Connect your direction to your faith and your actual life. Alignment is not a feeling. It's a decision you keep making."
-detail: "Reframe the patterns running your choices. Move from reaction to intention."
+desc: "Connect your direction to your faith and your actual life. Alignment is a decision you keep making."
+detail: "Reframe the patterns running your choices."
 order: 2
 ---

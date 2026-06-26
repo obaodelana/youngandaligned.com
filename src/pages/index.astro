@@ -22,7 +22,7 @@ const homeSchema = {
   name: 'Young and Aligned - Awaken: clarity for young adults of faith',
   url: SITE_URL,
   description:
-    'A 3-month faith-based clarity experience for young adults aged 18–25 to understand who they are, think more clearly, and move with intention.',
+    'A 3-month virtual, faith-based clarity experience for young adults (18-25) to discover who they are, renew how they think, and build a life of intentional direction.',
   isPartOf: { '@type': 'WebSite', name: 'Young & Aligned', url: SITE_URL },
   primaryImageOfPage: { '@type': 'ImageObject', url: DEFAULT_OG_IMAGE },
 };
@@ -32,6 +32,21 @@ const homeSchema = {
   <Nav />
   <main>
     <Hero />
+    <div class="bg-plaster pt-4 lg:pt-6 pb-16 lg:pb-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-lg mx-auto text-center">
+          <div class="reveal inline-flex flex-col items-center gap-4 px-8 py-7 sm:px-12 sm:py-9 rounded-[3px] border-2 border-brand/20 bg-brand-pale/60">
+          <span class="font-display text-2xl sm:text-3xl text-brand font-semibold leading-tight">Awaken Fall Cohort</span>
+          <span class="flex items-center gap-3">
+            <span class="block w-6 h-px bg-brand/30"></span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-deep flex-shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span class="block w-6 h-px bg-brand/30"></span>
+          </span>
+          <span class="text-base sm:text-lg text-ink-soft leading-relaxed">starts September 6, 2026</span>
+        </div>
+      </div>
+    </div>
+    </div>
     <Framework />
     <AudienceTabs />
     <HowItWorks />

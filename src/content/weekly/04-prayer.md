@@ -1,5 +1,5 @@
 ---
 title: "Prayer sessions"
-desc: "Protected time to slow down and seek God together."
+desc: "Weekly time to seek God together."
 order: 4
 ---

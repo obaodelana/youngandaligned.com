@@ -13,9 +13,7 @@ const items = weeklyEntries.filter((e) => !e.data.eyebrow);
       <h2 class="font-display text-4xl lg:text-5xl text-ink leading-tight text-balance">
         {intro?.data.heading}
       </h2>
-      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl mx-auto">
-        {intro?.data.intro}
-      </p>
+      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl mx-auto" set:html={intro?.data.intro?.replace('Awaken', '<span class="text-brand font-semibold">Awaken</span>').replace('three months', '<span class="text-brand font-semibold">three months</span>').replace('weekly', '<span class="text-brand font-semibold">weekly</span>')}></p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { AWAKEN_URL } from '../consts';
 const stages = (await getCollection('framework')).sort((a, b) => a.data.order - b.data.order);
 const meta = stages.find((s) => s.data.eyebrow)?.data;
 ---
@@ -13,23 +14,32 @@ const meta = stages.find((s) => s.data.eyebrow)?.data;
         {meta?.title}<br />
         <span class="text-ink-soft/70">You start with Awaken.</span>
       </h2>
-      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl mx-auto">
-        {meta?.intro}
-      </p>
+      <p class="mt-6 text-lg text-ink-soft leading-relaxed max-w-xl mx-auto" set:html={meta?.intro?.replace('understand', '<span class="text-brand font-semibold">understand</span>').replace('shift', '<span class="text-brand font-semibold">shift</span>').replace('take', '<span class="text-brand font-semibold">take</span>').replace('daily life', '<span class="text-brand font-semibold">daily life</span>')}></p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-px bg-stone-deep/40 border border-stone-deep/40 rounded-[2px] overflow-hidden">
       {stages.map((s) => (
         <article class={`reveal relative p-8 lg:p-10 text-center ${s.data.active ? 'bg-plaster' : 'bg-marble/60'}`}>
-          <div class="flex items-center justify-center gap-4 mb-8">
-            <span class="number-tag">{s.data.num}</span>
-            {s.data.active && (
-              <span class="font-mono text-[10px] tracking-wide2 uppercase text-brand border border-brand/40 px-2 py-1 rounded-full">Start here</span>
-            )}
-          </div>
-          <h3 class={`font-display text-3xl lg:text-4xl mb-2 ${s.data.active ? 'text-ink' : 'text-ink-soft/60'}`}>{s.data.name}</h3>
-          <p class={`font-mono text-xs tracking-wide2 uppercase mb-5 ${s.data.active ? 'text-brand-deep' : 'text-ink-soft/40'}`}>{s.data.tag}</p>
-          <p class={`text-[15px] leading-relaxed ${s.data.active ? 'text-ink-soft' : 'text-ink-soft/55'}`}>{s.data.desc}</p>
+          {s.data.active ? (
+            <a href={AWAKEN_URL} class="block no-underline group">
+              <div class="flex items-center justify-center gap-4 mb-8">
+                <span class="number-tag">{s.data.num}</span>
+                <span class="font-mono text-[10px] tracking-wide2 uppercase text-brand border border-brand/40 px-2 py-1 rounded-full">Start here</span>
+              </div>
+              <h3 class="font-display text-3xl lg:text-4xl mb-2 text-ink">{s.data.name}</h3>
+              <p class="font-mono text-xs tracking-wide2 uppercase mb-5 text-brand-deep">{s.data.tag}</p>
+              <p class="text-[15px] leading-relaxed text-ink-soft">{s.data.desc}</p>
+            </a>
+          ) : (
+            <>
+              <div class="flex items-center justify-center gap-4 mb-8">
+                <span class="number-tag">{s.data.num}</span>
+              </div>
+              <h3 class="font-display text-3xl lg:text-4xl mb-2 text-ink-soft/60">{s.data.name}</h3>
+              <p class="font-mono text-xs tracking-wide2 uppercase mb-5 text-ink-soft/40">{s.data.tag}</p>
+              <p class="text-[15px] leading-relaxed text-ink-soft/55">{s.data.desc}</p>
+            </>
+          )}
 
           {s.data.active && (
             <div class="absolute top-0 left-0 right-0 h-[2px] bg-brand animate-line-grow"></div>
