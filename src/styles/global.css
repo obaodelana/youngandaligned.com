@@ -22,7 +22,6 @@
     color: theme('colors.ink');
     font-family: theme('fontFamily.body');
     font-feature-settings: 'ss01', 'ss02';
-    overflow-x: hidden;
   }
 
   ::selection {
