@@ -3,12 +3,6 @@ week: 1
 date: "2026-09-06"
 title: "Awaken - Week 1"
 summary: "Introductions, the three stages of awakening (Discover, Develop, Deploy), writing a letter to your future self, hunger as a differentiator, and the power of God flowing in the direction of the Word you've received."
-takeaways:
-  - "If the future is not defined, you can't go anywhere."
-  - "Hunger is the way we place a demand on our possibilities."
-  - "Hunger leads to conviction."
-  - "The power of God flows only in the direction of the Word of God you've received."
-  - "Darkness has a loophole of ignorance."
 actionItems:
   - "Complete the free 16personalities.com personality test (truthfully) before next session."
   - "Read Genesis 1-3 and James 1, then write a summary of what you understand."

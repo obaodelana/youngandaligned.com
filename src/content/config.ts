@@ -181,7 +181,6 @@ const notes = defineCollection({
     date: z.string(),
     title: z.string(),
     summary: z.string().optional(),
-    takeaways: z.array(z.string()).default([]),
     actionItems: z.array(z.string()).default([]),
   }),
 });

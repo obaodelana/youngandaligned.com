@@ -77,23 +77,6 @@ const dateStr = formatDate(note.data.date);
           <Content />
         </div>
 
-        {note.data.takeaways?.length > 0 && (
-          <div class="reveal mt-14 p-6 lg:p-8 rounded-[3px] bg-brand-pale/60 border border-brand/20">
-            <div class="flex items-center gap-3 mb-5">
-              <span class="block w-6 h-px bg-brand"></span>
-              <h2 class="font-display text-sm uppercase tracking-wide2 text-brand-deep">Key takeaways</h2>
-            </div>
-            <ul class="space-y-3">
-              {note.data.takeaways.map((t) => (
-                <li class="flex gap-3 text-ink leading-relaxed">
-                  <span class="text-brand font-mono text-sm mt-1.5 flex-shrink-0">→</span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
         {note.data.actionItems?.length > 0 && (
           <div class="reveal mt-8 p-6 lg:p-8 rounded-[3px] bg-marble border border-stone-deep/40">
             <div class="flex items-center gap-3 mb-5">
