@@ -173,6 +173,19 @@ const bio = defineCollection({
   }),
 });
 
+// Weekly Awaken cohort notes — private, only accessible via /notes.
+const notes = defineCollection({
+  type: 'content',
+  schema: z.object({
+    week: z.number(),
+    date: z.string(),
+    title: z.string(),
+    summary: z.string().optional(),
+    takeaways: z.array(z.string()).default([]),
+    actionItems: z.array(z.string()).default([]),
+  }),
+});
+
 export const collections = {
   nav,
   footerExplore,
@@ -189,4 +202,5 @@ export const collections = {
   objections,
   founder,
   bio,
+  notes,
 };
