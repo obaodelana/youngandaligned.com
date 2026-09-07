@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => {
+    const slug = `week-${String(note.data.week).padStart(2, '0')}`;
+    return {
+      params: { week: slug },
+      props: { note },
+    };
+  });
+}
+
+const { note } = Astro.props;
+const { Content } = await note.render();
+
+const formatDate = (iso: string) =>
+  new Date(iso + 'T00:00:00').toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
+const dateStr = formatDate(note.data.date);
+---
+
+<Layout
+  title={`${note.data.title} - Awaken Notes - Young & Aligned`}
+  description={note.data.summary || `Notes from ${note.data.title}.`}
+  noindex={true}
+  path={`/notes/${Astro.params.week}`}
+>
+  <Nav />
+
+  <main class="min-h-screen">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 grain">
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="hidden sm:block absolute -top-32 -left-40 w-[480px] h-[480px] rounded-full bg-brand-soft/15 blur-3xl"></div>
+        <div class="hidden sm:block absolute -bottom-40 -right-32 w-[480px] h-[480px] rounded-full bg-jade/10 blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-2xl mx-auto px-6 lg:px-10">
+        <a href="/notes" class="reveal inline-flex items-center gap-2 text-sm text-ink-soft hover:text-ink transition-colors mb-8 group">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="transition-transform duration-500 group-hover:-translate-x-1"><path d="M13 7H1m0 0L7 13M1 7L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>All notes</span>
+        </a>
+
+        <div class="reveal flex items-center gap-3 mb-5">
+          <span class="block w-8 h-px bg-brand"></span>
+          <span class="eyebrow">Week {String(note.data.week).padStart(2, '0')}</span>
+        </div>
+
+        <h1 class="reveal reveal-delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight text-balance">
+          {note.data.title}
+        </h1>
+
+        <p class="reveal reveal-delay-2 mt-4 font-mono text-sm text-ink-soft/70 tracking-wide2">
+          {dateStr}
+        </p>
+
+        {note.data.summary && (
+          <p class="reveal reveal-delay-3 mt-6 text-lg text-ink-soft leading-relaxed text-pretty border-l-2 border-brand/30 pl-5">
+            {note.data.summary}
+          </p>
+        )}
+      </div>
+    </section>
+
+    <section class="relative pb-20 lg:pb-28">
+      <div class="max-w-2xl mx-auto px-6 lg:px-10">
+        <div class="notes-prose reveal reveal-delay-1">
+          <Content />
+        </div>
+
+        {note.data.actionItems?.length > 0 && (
+          <div class="reveal mt-8 p-6 lg:p-8 rounded-[3px] bg-marble border border-stone-deep/40">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="block w-6 h-px bg-ink"></span>
+              <h2 class="font-display text-sm uppercase tracking-wide2 text-ink">Before next session</h2>
+            </div>
+            <ul class="space-y-3">
+              {note.data.actionItems.map((item) => (
+                <li class="flex gap-3 text-ink-soft leading-relaxed">
+                  <span class="font-mono text-xs mt-1.5 flex-shrink-0 text-brand-deep">☐</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div class="reveal mt-14 pt-8 border-t border-stone-deep/40 text-center">
+          <a href="/notes" class="link-underline text-sm text-ink-soft hover:text-ink font-medium">
+            ← Back to all notes
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
