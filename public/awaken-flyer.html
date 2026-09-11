@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awaken — Fall 2026 Flyer</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    :root {
+      --ink: #1800ad;
+      --marble: #F4F5FF;
+      --plaster: #FFFFFF;
+      --brand: #ff751f;
+      --brand-deep: #e05e0a;
+      --brand-soft: #ff9a52;
+      --brand-pale: #fff3e8;
+      --jade: #0E007A;
+    }
+
+    @media print { .no-print { display: none; } }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--marble);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .flyer {
+      max-width: 1000px;
+      width: 100%;
+      background: var(--plaster);
+      border-radius: 4px;
+      box-shadow: 0 24px 80px rgba(24,0,173,0.08), 0 8px 24px rgba(24,0,173,0.04);
+      overflow: hidden;
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 4rem 3rem 3rem;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--jade) 100%);
+      color: var(--plaster);
+      overflow: hidden;
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-panel::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,117,31,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .org-name {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    .cohort-badge {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-soft);
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      color: var(--plaster);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--brand-soft);
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      margin: 0 auto;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .section-divider .line {
+      display: block;
+      width: 3rem;
+      height: 1px;
+      background: var(--brand);
+      opacity: 0.4;
+    }
+    .section-divider .diamond {
+      width: 10px;
+      height: 10px;
+      border: 1px solid var(--brand);
+      opacity: 0.5;
+      transform: rotate(45deg);
+    }
+
+    .body-panel {
+      padding: 2.5rem 3rem 3rem;
+    }
+
+    .intro-text {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.75;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,117,31,0.5);
+      background: var(--brand-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brand);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .step-name {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.1;
+    }
+    .step-desc {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--ink);
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .step-detail {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--ink);
+      opacity: 0.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .step-detail::before {
+      content: '';
+      display: block;
+      width: 1.25rem;
+      height: 1px;
+      background: var(--brand);
+      opacity: 0.4;
+      margin-top: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .cta-section {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(24,0,173,0.06);
+      text-align: center;
+    }
+    .cta-date {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .cta-heading {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .cta-sub {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink);
+      opacity: 0.6;
+      margin-bottom: 1.5rem;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--brand);
+      color: var(--plaster);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.9rem 2.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-btn:hover { background: var(--brand-deep); }
+
+    .footer-panel {
+      text-align: center;
+      padding: 2rem 3rem;
+      background: var(--marble);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      opacity: 0.4;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 1rem 0.5rem; }
+      .hero-panel { padding: 2.5rem 1.5rem 2rem; }
+      .body-panel { padding: 2rem 1.5rem; }
+      .hero-top { margin-bottom: 2rem; }
+      .step { grid-template-columns: 44px 1fr; gap: 1rem; }
+      .step-number { width: 44px; height: 44px; font-size: 0.8rem; }
+      .step-name { font-size: 1.25rem; }
+      .footer-panel { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <div class="hero-panel">
+    <div class="hero-top">
+      <span class="org-name">Young &amp; Aligned</span>
+      <span class="cohort-badge">Fall Cohort 2026</span>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">A faith-based clarity experience</p>
+      <h1 class="hero-title">Awaken to who you<br />are and where you're <em>going.</em></h1>
+      <p class="hero-subtitle">
+        A 3-month virtual, faith-based clarity experience for young adults (18-25)
+        to discover who they are, renew how they think, and build a life of intentional
+        direction.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-panel">
+
+    <div class="section-divider">
+      <span class="line"></span>
+      <span class="diamond"></span>
+      <span class="line"></span>
+    </div>
+
+    <p class="intro-text">
+      A structured system that helps you understand yourself, shift how you think,
+      and take intentional action in your daily life &mdash; grounded in faith.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div>
+          <h3 class="step-name">Reflect</h3>
+          <p class="step-desc">Name where you are. You won't get a label. You'll get a clearer mirror.</p>
+          <p class="step-detail">See the gap between the life you say you want and the decisions you're actually making.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">02</div>
+        <div>
+          <h3 class="step-name">Align</h3>
+          <p class="step-desc">Connect your direction to your faith and your actual life. Alignment is a decision you keep making.</p>
+          <p class="step-detail">Reframe the patterns running your choices.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">03</div>
+        <div>
+          <h3 class="step-name">Act</h3>
+          <p class="step-desc">Leave with a clear next step. Moves you can make with accountability to keep going.</p>
+          <p class="step-detail">Build the rhythm that carries clarity into your relationships, work, and direction.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <p class="cta-date">Join the Waitlist</p>
+      <p class="cta-heading">Ready to find your clarity?</p>
+      <p class="cta-sub">Limited spaces per cohort</p>
+      <a href="https://youngandaligned.fillout.com/t/1gz6gYAn5cus" class="cta-btn" target="_blank">Join Waitlist</a>
+    </div>
+
+  </div>
+
+  <div class="footer-panel">
+    Young &amp; Aligned &middot; awaken.youngandaligned.com
+  </div>
+
+</div>
+
+<p class="no-print" style="margin-top:1.5rem; font-size:0.75rem; color:rgba(24,0,173,0.3); font-family:'Courier New', Courier, monospace; letter-spacing:0.05em;">
+  Open in browser to print &middot; Designs match the Awaken brand
+</p>
+
+</body>
+</html>

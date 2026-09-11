@@ -1,8 +1,8 @@
 // Centralised, easily-swap-able constants. Change a URL or label here and the
 // rest of the site picks it up on the next build.
-export const AWAKEN_URL = 'https://youngandaligned.fillout.com/awaken';
+export const AWAKEN_URL = 'https://youngandaligned.fillout.com/t/1gz6gYAn5cus';
 export const SITE_NAME = 'Young & Aligned';
-export const CTA_LABEL = 'Join Awaken';
+export const CTA_LABEL = 'Join Waitlist';
 
 // Canonical production origin (used for canonical URLs, OG, sitemap, JSON-LD).
 export const SITE_URL = 'https://youngandaligned.com';
