@@ -126,28 +126,9 @@ if (jsonLd) {
         if (reduce) {
           document.documentElement.classList.add("reduce-motion");
           const css = document.createElement("style");
-          css.textContent = `.reveal{opacity:1!important;transform:none!important}.animate-slow-pan{animation:none!important}`;
+          css.textContent = `.animate-slow-pan{animation:none!important}`;
           document.head.appendChild(css);
-          return;
         }
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const e of entries) {
-              if (e.isIntersecting) {
-                e.target.classList.add("is-visible");
-                io.unobserve(e.target);
-              }
-            }
-          },
-          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-        );
-        const observe = () => {
-          document
-            .querySelectorAll(".reveal:not(.is-visible)")
-            .forEach((el) => io.observe(el));
-        };
-        if (document.readyState !== "loading") observe();
-        else document.addEventListener("DOMContentLoaded", observe);
       })();
     </script>
   </head>
