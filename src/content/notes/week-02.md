@@ -82,7 +82,7 @@ Three questions posed for personal reflection with the Holy Spirit:
 
 ## Next Week
 
-- Personality test results ([systempersonalities.com](http://systempersonalities.com)) to be discussed and interpreted through the lens of God's design.
+- Personality test results to be discussed and interpreted through the lens of God's design.
 - Bimbo is ISTP; results vary in accuracy by season and growth stage.
 
 ## Next Steps
@@ -90,8 +90,8 @@ Three questions posed for personal reflection with the Holy Spirit:
 - **Poll the WhatsApp group for a weekly tongues prayer session.**
   Bimbo proposed a dedicated 1-hour session of praying in tongues; someone to post a poll for date and time.
 - **Sign up on the Awaken portal.**
-  Create an account at [youngandaligned.com](http://youngandaligned.com) to access announcements, the prayer wall, and the community feed for book summaries.
-- **Begin reading the Awaken book and post a chapter summary.**
+  Create an account at [portal.youngandaligned.com](https://portal.youngandaligned.com) to access announcements, the prayer wall, and the community feed for book summaries.
+- **Begin reading the recommended book and post a chapter summary.**
   One chapter per week; summaries due by 6 PM every Saturday via the portal.
 - **Complete Week 1 catch-up (Eri and Esther).**
   Watch the Week 1 recording, write a letter to your future self at the linked site, and complete the 16 personalities test.
