@@ -2,7 +2,7 @@
 week: 8
 date: "2026-11-01"
 title: "Awaken - Week 8"
-summary: "The Fatherhood of God as the foundation of identity, a correction of 'as far as your eyes can see' as New Age framing, potential redefined as the highest thought God had concerning you, seeing what God has written instead of self-derived vision boards, and capacity to hear God as a state of presence."
+summary: "The Fatherhood of God as the foundation of identity, a correction of 'as far as your eyes can see', potential redefined as the highest thought God had concerning you, seeing what God has written instead of self-derived vision boards, and capacity to hear God as a state of presence."
 actionItems:
   - "Read Matthew 6 in the Message translation, 5 times — one method: play the audio version while reading along simultaneously."
   - "Reflection exercise: list every area of life, then for each ask 'Am I in my most productive state as regards God's thoughts?' — use scripture to define God's standard for each area, not personal intuition."
@@ -40,7 +40,7 @@ actionItems:
 - Common misquote attributed to Abraham's story in Genesis 13:14
   - God gave Abraham a *direction*: look northward, southward, eastward, westward
   - "All that you see" followed a directed gaze, not an open-ended personal vision
-- "As far as your eyes can see" is New Age framing: based on self, not God's direction
+- "As far as your eyes can see" is  based on self, not God's direction
   - Limits God to what the human mind can conceive
   - Abraham's descendants inherited far beyond what his eyes could physically see
 
@@ -58,7 +58,6 @@ actionItems:
   - Not actively praying for colleagues' salvation
   - Not stewarding the workplace as a spiritual territory for intercession
   - Receiving salary without actively acknowledging God as the supply channel
-  - Signed up for a $30/month structured organization feeding hungry people, modeled on Jesus' structured distribution of the loaves and fishes
 
 ## Vision Boards vs. Seeing What God Has Written
 
@@ -92,7 +91,7 @@ actionItems:
 - You cannot choose a life partner well based on a short-term, self-derived vision
   - God made Adam walk in his purpose before Eve was brought to him
   - Marrying a version of someone not yet fully developed is unavoidable; the question is whether you grow together in the Spirit
-- "I can be anything I want to be" is a doctrine of demons; the reframe is: **I can be anything God wants me to be**
+- "I can be anything I want to be" is not Biblical; the reframe is: **I can be anything God wants me to be**
   - Success is measured by God's eyes, not personal ambition
   - What you want has already been conformed to the world by what you have been exposed to
 
